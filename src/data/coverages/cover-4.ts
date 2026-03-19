@@ -1,0 +1,88 @@
+import type { CoverageData } from '../types';
+
+const cover4: CoverageData = {
+  id: 'cover-4',
+  name: 'Cover 4 (Quarters)',
+  shortName: 'C4',
+  family: 'zone',
+  safetyDepth: 4,
+  description:
+    'Cover 4, also called Quarters coverage, splits the deep field into four equal quarters — each covered by a cornerback or safety. With four defenders deep, it is the most conservative deep coverage in football. All four defensive backs play deep, leaving linebackers to handle the underneath game.',
+  strengths: [
+    'Virtually eliminates the deep passing game — four deep defenders',
+    'Excellent against vertical concepts (four verticals) and deep crossing routes',
+    'Safeties can read the QB and break on routes within their quarter',
+    'Very effective in prevent situations or protecting a lead late in games',
+  ],
+  weaknesses: [
+    'Short and intermediate routes are wide open — only linebackers underneath',
+    'Run defense suffers — all four DBs are deep and slow to trigger on the run',
+    'Crossing routes and drags exploit the large underneath windows',
+    'A quick screen or bubble pass can gain significant yards against this coverage',
+  ],
+  indicators: [
+    {
+      category: 'safety-alignment',
+      title: 'Four Deep Defenders',
+      tips: [
+        'BOTH safeties are deep — typically 10–12 yards off LOS, positioned over the tackles',
+        'CBs are also playing off (5–7 yards), prepared to retreat to their deep quarter',
+        'The entire secondary is at roughly the same deep depth pre-snap',
+      ],
+    },
+    {
+      category: 'cornerback-alignment',
+      title: 'Off Coverage with Outside Leverage',
+      tips: [
+        'CBs play off coverage with outside leverage on their receivers',
+        'They are NOT pressing — they need room to drop into their deep quarter',
+        'Look for CBs aligned 6–8 yards off with an outside shade',
+      ],
+    },
+    {
+      category: 'post-snap',
+      title: 'All Four Retreat Deep',
+      tips: [
+        'Post-snap: all four DBs immediately retreat to their quarter of the deep field',
+        'Linebackers are left alone to handle all short and intermediate routes',
+        'The coverage creates massive voids at 5–15 yards — exploit with quick routes',
+      ],
+    },
+  ],
+  diagram: {
+    players: [
+      // D-line
+      { id: 'LE', label: 'DE', role: 'dline', x: 36, y: 48 },
+      { id: 'DT1', label: 'DT', role: 'dline', x: 44, y: 48 },
+      { id: 'DT2', label: 'DT', role: 'dline', x: 56, y: 48 },
+      { id: 'RE', label: 'DE', role: 'dline', x: 64, y: 48 },
+      // Linebackers underneath (only ones short)
+      { id: 'LOLB', label: 'LB', role: 'linebacker', x: 30, y: 56,
+        coverageZone: { type: 'hook', rect: { x: 10, y: 50, width: 30, height: 16 } } },
+      { id: 'MLB', label: 'LB', role: 'linebacker', x: 50, y: 56,
+        coverageZone: { type: 'hook', rect: { x: 35, y: 50, width: 30, height: 16 } } },
+      { id: 'ROLB', label: 'LB', role: 'linebacker', x: 70, y: 56,
+        coverageZone: { type: 'hook', rect: { x: 60, y: 50, width: 30, height: 16 } } },
+      // Four deep defenders — each in a quarter
+      { id: 'LCB', label: 'CB', role: 'cornerback', x: 7, y: 53,
+        coverageZone: { type: 'deep-quarter', rect: { x: 0, y: 62, width: 25, height: 33 } } },
+      { id: 'FS', label: 'FS', role: 'safety', x: 30, y: 75,
+        coverageZone: { type: 'deep-quarter', rect: { x: 25, y: 62, width: 25, height: 33 } } },
+      { id: 'SS', label: 'SS', role: 'safety', x: 70, y: 75,
+        coverageZone: { type: 'deep-quarter', rect: { x: 50, y: 62, width: 25, height: 33 } } },
+      { id: 'RCB', label: 'CB', role: 'cornerback', x: 93, y: 53,
+        coverageZone: { type: 'deep-quarter', rect: { x: 75, y: 62, width: 25, height: 33 } } },
+    ],
+    annotations: [
+      { x: 12, y: 78, text: 'Q1', style: 'zone-label' },
+      { x: 37, y: 78, text: 'Q2', style: 'zone-label' },
+      { x: 62, y: 78, text: 'Q3', style: 'zone-label' },
+      { x: 87, y: 78, text: 'Q4', style: 'zone-label' },
+      { x: 50, y: 94, text: '⚠ Short & intermediate routes are WIDE OPEN', style: 'warning' },
+    ],
+  },
+  relatedCoverages: ['cover-2', 'cover-3', 'cover-6', 'pattern-match'],
+  tags: ['zone', 'four-deep', 'prevent', 'conservative', 'quarters'],
+};
+
+export default cover4;

@@ -1,0 +1,151 @@
+.results {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 32px 16px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.results-error {
+  padding: 40px 20px;
+  text-align: center;
+  color: #64748b;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.results__header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: #1a2332;
+  border: 1px solid #253347;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.results__score-ring {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #0f1923;
+  border-radius: 12px;
+  padding: 16px 20px;
+  flex-shrink: 0;
+}
+
+.results__score-pct {
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.results__score-label {
+  font-size: 13px;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+.results__grade {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.results__grade-sub {
+  margin: 0;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.results__section-title {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+  margin: 0 0 12px;
+}
+
+.results__missed-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.results__miss-item {
+  background: #1a2332;
+  border: 1px solid #253347;
+  border-radius: 8px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.results__miss-coverage {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.results__miss-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.results__miss-accuracy {
+  font-size: 11px;
+  color: #64748b;
+  background: #0f1923;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.results__miss-detail {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.results__miss-detail strong {
+  color: #fca5a5;
+}
+
+.results__miss-link {
+  font-size: 13px;
+  color: #4a9eff;
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.results__miss-link:hover {
+  text-decoration: underline;
+}
+
+.results__perfect {
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid #22c55e;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: #86efac;
+}
+
+.results__actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.results__actions .btn {
+  flex: 1;
+  min-width: 140px;
+  justify-content: center;
+}

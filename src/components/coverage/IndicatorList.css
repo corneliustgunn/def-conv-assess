@@ -1,0 +1,40 @@
+.indicator-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.indicator-group {
+  background: #1a2332;
+  border: 1px solid #253347;
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+
+.indicator-group__title {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #93c5fd;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.indicator-group__icon {
+  font-size: 15px;
+}
+
+.indicator-group__tips {
+  margin: 0;
+  padding: 0 0 0 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.indicator-tip {
+  font-size: 13px;
+  color: #cbd5e1;
+  line-height: 1.55;
+}
