@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import NavBar from './components/ui/NavBar';
 import HomePage from './pages/HomePage';
 import LearnIndexPage from './pages/LearnIndexPage';
@@ -10,7 +10,7 @@ import './App.css';
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="app">
         <NavBar />
         <main className="app__main">
@@ -25,6 +25,6 @@ export default function App() {
           </Routes>
         </main>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
