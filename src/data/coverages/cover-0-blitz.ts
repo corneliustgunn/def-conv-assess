@@ -76,6 +76,44 @@ const cover0Blitz: CoverageData = {
   },
   relatedCoverages: ['cover-0', 'cover-1-blitz'],
   tags: ['man', 'blitz', 'no-safety', 'aggressive', 'pressure'],
+  offensiveCounters: [
+    {
+      id: 'c0b-bubble',
+      name: 'Bubble Screen',
+      description: 'Against a blitz, the fastest answer is the pre-snap bubble. Throw it immediately to the slot — the ball is out before the pressure arrives and your receiver has space to work.',
+      routes: [
+        { receiverKey: 'slot', routeType: 'bubble', isPrimary: true },
+        { receiverKey: 'wr1', routeType: 'go', isPrimary: false },
+      ],
+      requiredAssets: ['Shifty slot receiver', 'WR1 as vertical decoy to clear space'],
+      auditeTrigger: '6+ defenders near the LOS — throw the bubble immediately at the snap.',
+      difficulty: 'easy',
+    },
+    {
+      id: 'c0b-rb-flat',
+      name: 'RB Flare / Checkdown',
+      description: 'The RB releases into the flat as the first read. With all rushers attacking, the RB will be open in space before the blitz reaches the QB.',
+      routes: [
+        { receiverKey: 'rb', routeType: 'flat', isPrimary: true },
+        { receiverKey: 'wr1', routeType: 'go', isPrimary: false },
+      ],
+      requiredAssets: ['Pass-catching RB', 'Quick release from the QB'],
+      auditeTrigger: 'Blitz alignment — identify the RB as your hot route before the snap.',
+      difficulty: 'easy',
+    },
+    {
+      id: 'c0b-hot-slant',
+      name: 'Hot Route Slant',
+      description: 'Change WR1 to a slant pre-snap. The slant hits at 3–4 yards in 1 second — faster than any blitzer can reach the QB. High percentage gain every time.',
+      routes: [
+        { receiverKey: 'wr1', routeType: 'slant', isPrimary: true },
+        { receiverKey: 'rb', routeType: 'flat', isPrimary: false },
+      ],
+      requiredAssets: ['WR1 with good hands on the slant'],
+      auditeTrigger: 'Blitz on WR1\'s side — slant to him immediately on the snap.',
+      difficulty: 'intermediate',
+    },
+  ],
 };
 
 export default cover0Blitz;

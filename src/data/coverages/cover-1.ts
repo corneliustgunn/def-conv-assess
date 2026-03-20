@@ -75,6 +75,47 @@ const cover1: CoverageData = {
   },
   relatedCoverages: ['cover-0', 'cover-3', 'cover-1-blitz'],
   tags: ['man', 'single-high', 'one-safety-deep'],
+  offensiveCounters: [
+    {
+      id: 'c1-four-verts',
+      name: 'Four Verticals',
+      description: 'One safety cannot cover four vertical routes. Run all four eligible receivers deep — the FS must choose one side, leaving the other side open.',
+      routes: [
+        { receiverKey: 'wr1', routeType: 'go', isPrimary: false },
+        { receiverKey: 'wr2', routeType: 'go', isPrimary: false },
+        { receiverKey: 'te', routeType: 'seam', isPrimary: true },
+        { receiverKey: 'slot', routeType: 'seam', isPrimary: false },
+      ],
+      requiredAssets: ['Athletic TE to stress the seam', 'Fast WRs to stress the boundary'],
+      auditeTrigger: 'Single safety deep center — run four verticals and read which side the safety leaves.',
+      difficulty: 'easy',
+    },
+    {
+      id: 'c1-boundary-corner',
+      name: 'Boundary Corner Route',
+      description: 'The lone free safety is centered. A corner route to the boundary forces the CB to defend 1-on-1 far from safety help. No one can rotate over in time.',
+      routes: [
+        { receiverKey: 'wr1', routeType: 'corner', isPrimary: true },
+        { receiverKey: 'te', routeType: 'dig', isPrimary: false },
+      ],
+      requiredAssets: ['WR1 with good size or separation', 'TE as secondary dig read'],
+      auditeTrigger: 'FS is centered — throw the corner route to the boundary away from him.',
+      difficulty: 'intermediate',
+    },
+    {
+      id: 'c1-mesh',
+      name: 'Mesh Concept',
+      description: 'Two receivers cross at different depths. Man defenders must navigate each other, creating a natural pick. One receiver always finds separation in the confusion.',
+      routes: [
+        { receiverKey: 'slot', routeType: 'mesh', isPrimary: true },
+        { receiverKey: 'te', routeType: 'crossing', isPrimary: false },
+        { receiverKey: 'wr1', routeType: 'go', isPrimary: false },
+      ],
+      requiredAssets: ['Quick slot receiver', 'TE with reliable hands'],
+      auditeTrigger: 'Man coverage underneath with single high — mesh creates picks on the defenders.',
+      difficulty: 'intermediate',
+    },
+  ],
 };
 
 export default cover1;

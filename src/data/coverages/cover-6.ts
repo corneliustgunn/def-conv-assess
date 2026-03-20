@@ -83,6 +83,46 @@ const cover6: CoverageData = {
   },
   relatedCoverages: ['cover-4', 'cover-2', 'pattern-match'],
   tags: ['zone', 'hybrid', 'asymmetric', 'advanced', 'quarters'],
+  offensiveCounters: [
+    {
+      id: 'c6-seam-c2side',
+      name: 'Seam — Attack the Cover 2 Half',
+      description: 'Cover 6 is asymmetric: one side plays Cover 2, the other Cover 4. The Cover 2 half has a seam gap between the two deep defenders. Send the TE up the seam on that side.',
+      routes: [
+        { receiverKey: 'te', routeType: 'seam', isPrimary: true },
+        { receiverKey: 'wr1', routeType: 'corner', isPrimary: false },
+      ],
+      requiredAssets: ['Athletic TE to exploit the split safety coverage'],
+      auditeTrigger: 'Identify which side is running Cover 2 (one safety deep) — seam that side.',
+      difficulty: 'intermediate',
+    },
+    {
+      id: 'c6-crossing-c4side',
+      name: 'Crossing Route — Attack the Cover 4 Side',
+      description: 'The Cover 4 side has only a linebacker underneath. A crossing route from the slot finds easy grass between the deep quarters and the soft LB zone.',
+      routes: [
+        { receiverKey: 'slot', routeType: 'crossing', isPrimary: true },
+        { receiverKey: 'te', routeType: 'dig', isPrimary: false },
+        { receiverKey: 'wr2', routeType: 'go', isPrimary: false },
+      ],
+      requiredAssets: ['Slot receiver who can run after the catch'],
+      auditeTrigger: 'Cover 4 side (two defenders deep) — crosser into the soft LB zone.',
+      difficulty: 'intermediate',
+    },
+    {
+      id: 'c6-post-wheel',
+      name: 'Post-Wheel Combo',
+      description: 'WR1 runs a post on the Cover 2 side while the RB wheels to the flat on the Cover 4 side. Forces a split defensive decision — one is always open.',
+      routes: [
+        { receiverKey: 'wr1', routeType: 'post', isPrimary: false },
+        { receiverKey: 'rb', routeType: 'wheel', isPrimary: true },
+        { receiverKey: 'wr2', routeType: 'go', isPrimary: false },
+      ],
+      requiredAssets: ['WR1 for the post', 'RB with wheel route quickness'],
+      auditeTrigger: 'Cover 6 split is clear — attack both sides simultaneously.',
+      difficulty: 'intermediate',
+    },
+  ],
 };
 
 export default cover6;

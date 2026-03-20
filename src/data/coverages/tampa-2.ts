@@ -85,6 +85,46 @@ const tampa2: CoverageData = {
   },
   relatedCoverages: ['cover-2', 'cover-3', 'cover-4'],
   tags: ['zone', 'two-high', 'mlb-seam', 'cover-2-variant'],
+  offensiveCounters: [
+    {
+      id: 't2-corner',
+      name: 'Corner Route',
+      description: 'The MLB plugs the seam, but that creates a gap on the boundary. WR1 runs vertical then breaks toward the corner of the end zone — the CB/safety gap is wide open.',
+      routes: [
+        { receiverKey: 'wr1', routeType: 'corner', isPrimary: true },
+        { receiverKey: 'te', routeType: 'dig', isPrimary: false },
+      ],
+      requiredAssets: ['WR1 with a sharp break at the top of the route'],
+      auditeTrigger: 'MLB dropping deep into the seam — attack the corner away from his drop.',
+      difficulty: 'easy',
+    },
+    {
+      id: 't2-dig',
+      name: 'Dig Route (Intermediate Void)',
+      description: 'Tampa 2 leaves a window at 10–15 yards in the intermediate zone — the MLB dropped too deep and the safeties are wide. A sharp dig route hits right in this void.',
+      routes: [
+        { receiverKey: 'wr1', routeType: 'dig', isPrimary: true },
+        { receiverKey: 'slot', routeType: 'flat', isPrimary: false },
+        { receiverKey: 'wr2', routeType: 'go', isPrimary: false },
+      ],
+      requiredAssets: ['WR1 with a crisp 15-yard dig break'],
+      auditeTrigger: 'Two safeties split wide with MLB deep — the 12-yard dig sits in the open window.',
+      difficulty: 'easy',
+    },
+    {
+      id: 't2-mesh',
+      name: 'Mesh / Rub Routes',
+      description: 'With the MLB committed deep, short crossing traffic underneath goes uncontested. Slot and TE run mesh routes through the vacated middle zone.',
+      routes: [
+        { receiverKey: 'slot', routeType: 'mesh', isPrimary: true },
+        { receiverKey: 'te', routeType: 'crossing', isPrimary: false },
+        { receiverKey: 'wr1', routeType: 'corner', isPrimary: false },
+      ],
+      requiredAssets: ['Quick slot', 'TE with hands in the middle of the field'],
+      auditeTrigger: 'MLB deep = no one defending short crossing traffic underneath.',
+      difficulty: 'intermediate',
+    },
+  ],
 };
 
 export default tampa2;

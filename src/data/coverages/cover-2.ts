@@ -84,6 +84,46 @@ const cover2: CoverageData = {
   },
   relatedCoverages: ['cover-2-man', 'tampa-2', 'cover-4'],
   tags: ['zone', 'two-high', 'press-corners', 'seam-weakness'],
+  offensiveCounters: [
+    {
+      id: 'c2-seam',
+      name: 'Seam Attack',
+      description: 'The gap between the two safeties is the Cover 2 kill shot. Run the TE or slot straight up the seam — neither safety can cover it without giving up their half.',
+      routes: [
+        { receiverKey: 'te', routeType: 'seam', isPrimary: true },
+        { receiverKey: 'slot', routeType: 'seam', isPrimary: false },
+        { receiverKey: 'wr1', routeType: 'go', isPrimary: false },
+      ],
+      requiredAssets: ['Athletic TE or fast slot receiver'],
+      auditeTrigger: 'Two safeties split wide — the seam straight up the middle is undefended.',
+      difficulty: 'easy',
+    },
+    {
+      id: 'c2-corner',
+      name: 'Corner Route',
+      description: 'Run WR1 vertical then break toward the corner of the end zone. The CB pressed and dropped to the flat — he cannot recover. The safety is too far inside.',
+      routes: [
+        { receiverKey: 'wr1', routeType: 'corner', isPrimary: true },
+        { receiverKey: 'te', routeType: 'curl', isPrimary: false },
+      ],
+      requiredAssets: ['WR1 with size or burst at the break'],
+      auditeTrigger: 'CB pressed and sitting in flat zone — the corner route attacks behind him.',
+      difficulty: 'intermediate',
+    },
+    {
+      id: 'c2-flood',
+      name: 'Curl-Flat Combo',
+      description: 'Put WR1 on a curl and the slot on a flat route on the same side. The CB must choose: cover the flat or the curl. One is always open.',
+      routes: [
+        { receiverKey: 'wr1', routeType: 'curl', isPrimary: true },
+        { receiverKey: 'slot', routeType: 'flat', isPrimary: false },
+        { receiverKey: 'wr2', routeType: 'go', isPrimary: false },
+      ],
+      requiredAssets: ['Reliable WR1 on curl', 'Slot or RB in the flat'],
+      auditeTrigger: 'CB in the flat zone — force a two-on-one with curl + flat on the same side.',
+      difficulty: 'intermediate',
+    },
+  ],
 };
 
 export default cover2;

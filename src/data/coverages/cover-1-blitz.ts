@@ -76,6 +76,45 @@ const cover1Blitz: CoverageData = {
   },
   relatedCoverages: ['cover-1', 'cover-0-blitz', 'cover-0'],
   tags: ['man', 'blitz', 'single-high', 'pressure'],
+  offensiveCounters: [
+    {
+      id: 'c1b-slant',
+      name: 'Quick Slant',
+      description: 'A slant route beats the blitz every time — it\'s out in 1 second, before pressure arrives. The defender is crashing the QB, not in position to cover the slant.',
+      routes: [
+        { receiverKey: 'wr1', routeType: 'slant', isPrimary: true },
+        { receiverKey: 'rb', routeType: 'flat', isPrimary: false },
+      ],
+      requiredAssets: ['WR1 with quick release and sure hands'],
+      auditeTrigger: 'Extra defenders near the LOS — slant beats the blitz every time.',
+      difficulty: 'easy',
+    },
+    {
+      id: 'c1b-boundary-corner',
+      name: 'Boundary Corner Route',
+      description: 'The single FS is centered. A corner route to the boundary WR exploits the gap far from safety help. With blitzers occupying blockers, the CB may be overmatched.',
+      routes: [
+        { receiverKey: 'wr1', routeType: 'corner', isPrimary: true },
+        { receiverKey: 'te', routeType: 'dig', isPrimary: false },
+      ],
+      requiredAssets: ['WR1 with speed to beat the press CB on the vertical'],
+      auditeTrigger: 'Single high FS — throw the corner route away from him if you can protect long enough.',
+      difficulty: 'intermediate',
+    },
+    {
+      id: 'c1b-mesh',
+      name: 'Mesh Underneath',
+      description: 'With blitzers flying upfield, short crossing routes are left unguarded underneath. Run mesh routes — defenders are rushing, not covering the crossing lanes.',
+      routes: [
+        { receiverKey: 'slot', routeType: 'mesh', isPrimary: true },
+        { receiverKey: 'te', routeType: 'crossing', isPrimary: false },
+        { receiverKey: 'wr2', routeType: 'go', isPrimary: false },
+      ],
+      requiredAssets: ['Slot and TE who run crisp short routes'],
+      auditeTrigger: 'Man blitz — blitzers leave crossing lanes wide open.',
+      difficulty: 'intermediate',
+    },
+  ],
 };
 
 export default cover1Blitz;

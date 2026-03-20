@@ -2,6 +2,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { coverageById, allCoverages } from '../data/coverages';
 import CoverageDiagram from '../components/coverage/CoverageDiagram';
 import IndicatorList from '../components/coverage/IndicatorList';
+import CounterCard from '../components/coverage/CounterCard';
 import Badge from '../components/ui/Badge';
 import './CoverageDetailPage.css';
 
@@ -104,8 +105,34 @@ export default function CoverageDetailPage() {
         </div>
       </div>
 
+      {coverage.offensiveCounters.length > 0 && (
+        <div className="detail__attack">
+          <div className="detail__attack-header">
+            <h2 className="detail__attack-title">
+              <span className="detail__attack-icon">⚔</span>
+              How to Attack It
+            </h2>
+            <p className="detail__attack-subtitle">
+              Offensive concepts that exploit {coverage.name}'s vulnerabilities.
+              Gold route = primary read.
+            </p>
+          </div>
+          <div className="detail__attack-cards">
+            {coverage.offensiveCounters.map((counter) => (
+              <CounterCard
+                key={counter.id}
+                counter={counter}
+                diagram={coverage.diagram}
+                size="full"
+              />
+            ))}
+          </div>
+        </div>
+      )}
+
       <div className="detail__quiz-cta">
         <Link to="/quiz" className="btn btn--primary">Test Your Knowledge →</Link>
+        <Link to="/audible" className="btn btn--secondary">Quick Audible Reference →</Link>
       </div>
     </div>
   );
