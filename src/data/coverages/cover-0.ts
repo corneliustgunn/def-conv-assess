@@ -51,24 +51,24 @@ const cover0: CoverageData = {
   diagram: {
     players: [
       // D-line
-      { id: 'LE', label: 'DE', role: 'dline', x: 36, y: 48 },
-      { id: 'DT1', label: 'DT', role: 'dline', x: 44, y: 48 },
-      { id: 'DT2', label: 'DT', role: 'dline', x: 56, y: 48 },
-      { id: 'RE', label: 'DE', role: 'dline', x: 64, y: 48 },
+      { id: 'LE', label: 'DE', role: 'dline', x: 36, y: 52 },
+      { id: 'DT1', label: 'DT', role: 'dline', x: 44, y: 52 },
+      { id: 'DT2', label: 'DT', role: 'dline', x: 56, y: 52 },
+      { id: 'RE', label: 'DE', role: 'dline', x: 64, y: 52 },
       // Linebackers (in man on TEs/RBs)
-      { id: 'LOLB', label: 'LB', role: 'linebacker', x: 28, y: 52, manTarget: 'TE' },
-      { id: 'MLB', label: 'LB', role: 'linebacker', x: 50, y: 52, manTarget: 'RB' },
-      { id: 'ROLB', label: 'LB', role: 'linebacker', x: 72, y: 52, manTarget: 'slot' },
+      { id: 'LOLB', label: 'LB', role: 'linebacker', x: 28, y: 48, manTarget: 'TE' },
+      { id: 'MLB', label: 'LB', role: 'linebacker', x: 50, y: 48, manTarget: 'RB' },
+      { id: 'ROLB', label: 'LB', role: 'linebacker', x: 72, y: 48, manTarget: 'slot' },
       // Safeties (in man on slot/TE, NOT deep)
-      { id: 'SS', label: 'SS', role: 'safety', x: 22, y: 56, manTarget: 'TE' },
-      { id: 'FS', label: 'FS', role: 'safety', x: 78, y: 56, manTarget: 'slot' },
+      { id: 'SS', label: 'SS', role: 'safety', x: 22, y: 44, manTarget: 'TE' },
+      { id: 'FS', label: 'FS', role: 'safety', x: 78, y: 44, manTarget: 'slot' },
       // Corners (press man on WRs)
-      { id: 'LCB', label: 'CB', role: 'cornerback', x: 8, y: 49, manTarget: 'WR' },
-      { id: 'RCB', label: 'CB', role: 'cornerback', x: 92, y: 49, manTarget: 'WR' },
+      { id: 'LCB', label: 'CB', role: 'cornerback', x: 8, y: 51, manTarget: 'WR' },
+      { id: 'RCB', label: 'CB', role: 'cornerback', x: 92, y: 51, manTarget: 'WR' },
     ],
     annotations: [
-      { x: 50, y: 90, text: 'NO DEEP HELP', style: 'warning' },
-      { x: 50, y: 95, text: 'All man — every defender has an assignment', style: 'zone-label' },
+      { x: 50, y: 10, text: 'NO DEEP HELP', style: 'warning' },
+      { x: 50, y: 5, text: 'All man — every defender has an assignment', style: 'zone-label' },
     ],
   },
   relatedCoverages: ['cover-1', 'cover-0-blitz', 'cover-2-man'],

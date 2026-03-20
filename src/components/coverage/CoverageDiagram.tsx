@@ -36,7 +36,7 @@ const ZONE_COLORS: Record<string, string> = {
 
 const W = 500;
 const H = 340;
-const LOS_Y = 0.45; // LOS at 45% height
+const LOS_Y = 0.55; // LOS at 55% height — offense below, defense above
 
 function toSvgX(pct: number) { return (pct / 100) * W; }
 function toSvgY(pct: number) { return (pct / 100) * H; }
@@ -63,9 +63,9 @@ function FieldBackground() {
       {/* Line of scrimmage */}
       <line x1={0} y1={toSvgY(LOS_Y * 100)} x2={W} y2={toSvgY(LOS_Y * 100)} stroke="#fff" strokeWidth={2} opacity={0.8} strokeDasharray="8 4" />
       <text x={W - 12} y={toSvgY(LOS_Y * 100) - 4} fill="#fff" fontSize={9} opacity={0.7} textAnchor="end">LOS</text>
-      {/* Offense side label */}
-      <text x={W / 2} y={toSvgY(LOS_Y * 100) - 8} fill="#fff" fontSize={9} opacity={0.5} textAnchor="middle">OFFENSE ↑</text>
-      <text x={W / 2} y={toSvgY(LOS_Y * 100) + 14} fill="#fff" fontSize={9} opacity={0.5} textAnchor="middle">DEFENSE ↓</text>
+      {/* Side labels */}
+      <text x={W / 2} y={toSvgY(LOS_Y * 100) - 8} fill="#fff" fontSize={9} opacity={0.5} textAnchor="middle">DEFENSE</text>
+      <text x={W / 2} y={toSvgY(LOS_Y * 100) + 14} fill="#fff" fontSize={9} opacity={0.5} textAnchor="middle">OFFENSE ↑</text>
     </>
   );
 }
@@ -162,7 +162,7 @@ function PlayerDotComponent({ player, showLabel }: { player: PlayerDot; showLabe
 function OffenseSymbols() {
   // Static offense: center + 2 guards + 2 tackles + QB + RB + 2 WRs + TE + slot
   const los = toSvgY(LOS_Y * 100);
-  const yOff = los - 16; // offense players slightly above LOS
+  const yOff = los + 16; // offense players slightly below LOS
   const positions = [
     { x: 250, label: 'C' },
     { x: 225, label: 'G' },
@@ -187,12 +187,12 @@ function OffenseSymbols() {
         />
       ))}
       {/* QB */}
-      <circle cx={250} cy={los - 38} r={9} fill="none" stroke="#fff" strokeWidth={1.5} opacity={0.45} />
+      <circle cx={250} cy={los + 38} r={9} fill="none" stroke="#fff" strokeWidth={1.5} opacity={0.45} />
       {/* WRs */}
       <circle cx={30} cy={yOff} r={9} fill="none" stroke="#fff" strokeWidth={1.5} opacity={0.45} />
       <circle cx={470} cy={yOff} r={9} fill="none" stroke="#fff" strokeWidth={1.5} opacity={0.45} />
       {/* Slot */}
-      <circle cx={140} cy={yOff - 4} r={9} fill="none" stroke="#fff" strokeWidth={1.5} opacity={0.45} />
+      <circle cx={140} cy={yOff + 4} r={9} fill="none" stroke="#fff" strokeWidth={1.5} opacity={0.45} />
     </>
   );
 }

@@ -7,18 +7,18 @@ interface Props {
 // SVG dimensions match CoverageDiagram
 const W = 500;
 const H = 340;
-const LOS_Y_PCT = 45; // LOS at 45% of height
+const LOS_Y_PCT = 55; // LOS at 55% of height — offense below, defense above
 
 function toX(pct: number) { return (pct / 100) * W; }
 function toY(pct: number) { return (pct / 100) * H; }
 
-// Fixed receiver starting positions (% coords, above LOS which is at y=45%)
+// Fixed receiver starting positions (% coords, below LOS which is at y=55%)
 const RECEIVER_STARTS: Record<ReceiverKey, { x: number; y: number }> = {
-  wr1:  { x: 6,  y: LOS_Y_PCT - 5 },   // left outside WR
-  wr2:  { x: 94, y: LOS_Y_PCT - 5 },   // right outside WR
-  slot: { x: 28, y: LOS_Y_PCT - 5 },   // left slot
-  te:   { x: 36, y: LOS_Y_PCT - 3 },   // tight end
-  rb:   { x: 52, y: LOS_Y_PCT - 4 },   // running back
+  wr1:  { x: 6,  y: LOS_Y_PCT + 5 },   // left outside WR
+  wr2:  { x: 94, y: LOS_Y_PCT + 5 },   // right outside WR
+  slot: { x: 28, y: LOS_Y_PCT + 5 },   // left slot
+  te:   { x: 36, y: LOS_Y_PCT + 3 },   // tight end
+  rb:   { x: 52, y: LOS_Y_PCT + 4 },   // running back
 };
 
 // Determine if a receiver is on the left or right side of the field
@@ -45,27 +45,27 @@ function getRouteWaypoints(key: ReceiverKey, routeType: RouteType): Waypoint[] {
 
   switch (routeType) {
     case 'go':
-      return [s, { x: s.x, y: 6 }];
+      return [s, { x: s.x, y: 16 }];
 
     case 'post':
-      return [s, { x: s.x, y: 22 }, { x: s.x + inDir * 22, y: 8 }];
+      return [s, { x: s.x, y: 32 }, { x: s.x + inDir * 22, y: 18 }];
 
     case 'corner':
-      return [s, { x: s.x, y: 22 }, { x: s.x + outDir * 8, y: 10 }];
+      return [s, { x: s.x, y: 32 }, { x: s.x + outDir * 8, y: 20 }];
 
     case 'dig':
-      return [s, { x: s.x, y: 22 }, { x: 50 + inDir * 5, y: 22 }];
+      return [s, { x: s.x, y: 32 }, { x: 50 + inDir * 5, y: 32 }];
 
     case 'slant':
-      return [s, { x: s.x + inDir * 18, y: 33 }];
+      return [s, { x: s.x + inDir * 18, y: 43 }];
 
     case 'crossing':
       // Crosses the full field at intermediate depth
-      return [s, { x: isLeftSide(key) ? 78 : 22, y: 32 }];
+      return [s, { x: isLeftSide(key) ? 78 : 22, y: 42 }];
 
     case 'seam':
       // Straight vertical (TE/slot) up the seam
-      return [s, { x: s.x, y: 6 }];
+      return [s, { x: s.x, y: 16 }];
 
     case 'flat':
       // Short lateral outside
@@ -77,18 +77,18 @@ function getRouteWaypoints(key: ReceiverKey, routeType: RouteType): Waypoint[] {
 
     case 'curl':
       // Up then curl back toward QB
-      return [s, { x: s.x, y: 22 }, { x: s.x + inDir * 4, y: 28 }];
+      return [s, { x: s.x, y: 32 }, { x: s.x + inDir * 4, y: 38 }];
 
     case 'wheel':
       // RB flat then up the sideline
-      return [s, { x: s.x + outDir * 12, y: LOS_Y_PCT - 2 }, { x: s.x + outDir * 16, y: 8 }];
+      return [s, { x: s.x + outDir * 12, y: LOS_Y_PCT - 2 }, { x: s.x + outDir * 16, y: 18 }];
 
     case 'mesh':
       // Short cross just past the LOS
-      return [s, { x: isLeftSide(key) ? s.x + 22 : s.x - 22, y: 37 }];
+      return [s, { x: isLeftSide(key) ? s.x + 22 : s.x - 22, y: 47 }];
 
     default:
-      return [s, { x: s.x, y: 10 }];
+      return [s, { x: s.x, y: 20 }];
   }
 }
 

@@ -52,26 +52,26 @@ const cover1Blitz: CoverageData = {
   diagram: {
     players: [
       // D-line
-      { id: 'LE', label: 'DE', role: 'dline', x: 35, y: 47 },
-      { id: 'DT1', label: 'DT', role: 'dline', x: 44, y: 47 },
-      { id: 'DT2', label: 'DT', role: 'dline', x: 56, y: 47 },
-      { id: 'RE', label: 'DE', role: 'dline', x: 65, y: 47 },
+      { id: 'LE', label: 'DE', role: 'dline', x: 35, y: 53 },
+      { id: 'DT1', label: 'DT', role: 'dline', x: 44, y: 53 },
+      { id: 'DT2', label: 'DT', role: 'dline', x: 56, y: 53 },
+      { id: 'RE', label: 'DE', role: 'dline', x: 65, y: 53 },
       // Blitzing LBs
       { id: 'LOLB', label: 'LB', role: 'blitzer', x: 29, y: 50, isBlitzing: true },
       { id: 'ROLB', label: 'LB', role: 'blitzer', x: 71, y: 50, isBlitzing: true },
       // MLB in man on RB
-      { id: 'MLB', label: 'LB', role: 'linebacker', x: 50, y: 53, manTarget: 'RB' },
+      { id: 'MLB', label: 'LB', role: 'linebacker', x: 50, y: 47, manTarget: 'RB' },
       // SS blitzing or in man (shallow)
-      { id: 'SS', label: 'SS', role: 'blitzer', x: 38, y: 55, isBlitzing: true },
+      { id: 'SS', label: 'SS', role: 'blitzer', x: 38, y: 45, isBlitzing: true },
       // FS single high center
-      { id: 'FS', label: 'FS', role: 'safety', x: 50, y: 83 },
+      { id: 'FS', label: 'FS', role: 'safety', x: 50, y: 17 },
       // Corners in press man
-      { id: 'LCB', label: 'CB', role: 'cornerback', x: 8, y: 49, manTarget: 'WR' },
-      { id: 'RCB', label: 'CB', role: 'cornerback', x: 92, y: 49, manTarget: 'WR' },
+      { id: 'LCB', label: 'CB', role: 'cornerback', x: 8, y: 51, manTarget: 'WR' },
+      { id: 'RCB', label: 'CB', role: 'cornerback', x: 92, y: 51, manTarget: 'WR' },
     ],
     annotations: [
-      { x: 50, y: 89, text: 'Single High Safety', style: 'zone-label' },
-      { x: 50, y: 95, text: '5+ rushers — limited deep help', style: 'zone-label' },
+      { x: 50, y: 11, text: 'Single High Safety', style: 'zone-label' },
+      { x: 50, y: 5, text: '5+ rushers — limited deep help', style: 'zone-label' },
     ],
   },
   relatedCoverages: ['cover-1', 'cover-0-blitz', 'cover-0'],

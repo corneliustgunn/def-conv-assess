@@ -52,27 +52,27 @@ const bracket: CoverageData = {
   diagram: {
     players: [
       // D-line
-      { id: 'LE', label: 'DE', role: 'dline', x: 36, y: 48 },
-      { id: 'DT1', label: 'DT', role: 'dline', x: 44, y: 48 },
-      { id: 'DT2', label: 'DT', role: 'dline', x: 56, y: 48 },
-      { id: 'RE', label: 'DE', role: 'dline', x: 64, y: 48 },
+      { id: 'LE', label: 'DE', role: 'dline', x: 36, y: 52 },
+      { id: 'DT1', label: 'DT', role: 'dline', x: 44, y: 52 },
+      { id: 'DT2', label: 'DT', role: 'dline', x: 56, y: 52 },
+      { id: 'RE', label: 'DE', role: 'dline', x: 64, y: 52 },
       // Linebackers
-      { id: 'LOLB', label: 'LB', role: 'linebacker', x: 28, y: 54, manTarget: 'TE' },
-      { id: 'MLB', label: 'LB', role: 'linebacker', x: 50, y: 54, manTarget: 'RB' },
-      { id: 'ROLB', label: 'LB', role: 'linebacker', x: 72, y: 54, manTarget: 'slot' },
+      { id: 'LOLB', label: 'LB', role: 'linebacker', x: 28, y: 46, manTarget: 'TE' },
+      { id: 'MLB', label: 'LB', role: 'linebacker', x: 50, y: 46, manTarget: 'RB' },
+      { id: 'ROLB', label: 'LB', role: 'linebacker', x: 72, y: 46, manTarget: 'slot' },
       // FS centerfield-ish (must cover right side alone)
-      { id: 'FS', label: 'FS', role: 'safety', x: 65, y: 78 },
+      { id: 'FS', label: 'FS', role: 'safety', x: 65, y: 22 },
       // SS bracketing the left WR over the top
-      { id: 'SS', label: 'SS', role: 'safety', x: 12, y: 70, manTarget: 'WR★' },
+      { id: 'SS', label: 'SS', role: 'safety', x: 12, y: 30, manTarget: 'WR★' },
       // LCB brackets the elite WR underneath
       { id: 'LCB', label: 'CB★', role: 'cornerback', x: 8, y: 50, manTarget: 'WR★' },
       // RCB in normal man on right WR
-      { id: 'RCB', label: 'CB', role: 'cornerback', x: 92, y: 49, manTarget: 'WR' },
+      { id: 'RCB', label: 'CB', role: 'cornerback', x: 92, y: 51, manTarget: 'WR' },
     ],
     annotations: [
-      { x: 12, y: 62, text: '★ BRACKET', style: 'zone-label' },
-      { x: 12, y: 68, text: 'CB under + S over', style: 'zone-label' },
-      { x: 65, y: 94, text: '⚠ Right side: single coverage', style: 'warning' },
+      { x: 12, y: 38, text: '★ BRACKET', style: 'zone-label' },
+      { x: 12, y: 32, text: 'CB under + S over', style: 'zone-label' },
+      { x: 65, y: 6, text: '⚠ Right side: single coverage', style: 'warning' },
     ],
   },
   relatedCoverages: ['cover-1', 'cover-2-man', 'pattern-match'],
