@@ -79,6 +79,7 @@ const cover1Blitz: CoverageData = {
   offensiveCounters: [
     {
       id: 'c1b-slant',
+      formation: 'standard',
       name: 'Quick Slant',
       description: 'A slant route beats the blitz every time — it\'s out in 1 second, before pressure arrives. The defender is crashing the QB, not in position to cover the slant.',
       routes: [
@@ -91,6 +92,7 @@ const cover1Blitz: CoverageData = {
     },
     {
       id: 'c1b-boundary-corner',
+      formation: 'trips-left',
       name: 'Boundary Corner Route',
       description: 'The single FS is centered. A corner route to the boundary WR exploits the gap far from safety help. With blitzers occupying blockers, the CB may be overmatched.',
       routes: [
@@ -103,6 +105,7 @@ const cover1Blitz: CoverageData = {
     },
     {
       id: 'c1b-mesh',
+      formation: 'standard',
       name: 'Mesh Underneath',
       description: 'With blitzers flying upfield, short crossing routes are left unguarded underneath. Run mesh routes — defenders are rushing, not covering the crossing lanes.',
       routes: [

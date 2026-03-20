@@ -86,6 +86,7 @@ const cover6: CoverageData = {
   offensiveCounters: [
     {
       id: 'c6-seam-c2side',
+      formation: 'tight',
       name: 'Seam — Attack the Cover 2 Half',
       description: 'Cover 6 is asymmetric: one side plays Cover 2, the other Cover 4. The Cover 2 half has a seam gap between the two deep defenders. Send the TE up the seam on that side.',
       routes: [
@@ -98,6 +99,7 @@ const cover6: CoverageData = {
     },
     {
       id: 'c6-crossing-c4side',
+      formation: 'standard',
       name: 'Crossing Route — Attack the Cover 4 Side',
       description: 'The Cover 4 side has only a linebacker underneath. A crossing route from the slot finds easy grass between the deep quarters and the soft LB zone.',
       routes: [
@@ -111,6 +113,7 @@ const cover6: CoverageData = {
     },
     {
       id: 'c6-post-wheel',
+      formation: 'tight',
       name: 'Post-Wheel Combo',
       description: 'WR1 runs a post on the Cover 2 side while the RB wheels to the flat on the Cover 4 side. Forces a split defensive decision — one is always open.',
       routes: [

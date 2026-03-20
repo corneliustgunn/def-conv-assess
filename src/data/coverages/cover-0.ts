@@ -78,6 +78,7 @@ const cover0: CoverageData = {
       id: 'c0-verticals',
       name: 'Verticals',
       description: 'No safety help means every vertical route is 1-on-1 deep. Your fastest receiver wins a go route for a big play. The defender has no help over the top — throw it up.',
+      formation: 'empty',
       routes: [
         { receiverKey: 'wr1', routeType: 'go', isPrimary: true },
         { receiverKey: 'wr2', routeType: 'go', isPrimary: false },
@@ -91,6 +92,7 @@ const cover0: CoverageData = {
       id: 'c0-bubble',
       name: 'Bubble Screen',
       description: 'With everyone in tight press man, the bubble screen hits before anyone can react. The slot catches it lateral and turns upfield before the CB can disengage.',
+      formation: 'standard',
       routes: [
         { receiverKey: 'slot', routeType: 'bubble', isPrimary: true },
         { receiverKey: 'wr1', routeType: 'go', isPrimary: false },
@@ -103,6 +105,7 @@ const cover0: CoverageData = {
       id: 'c0-mesh',
       name: 'Mesh / Rub Routes',
       description: 'Crossing routes force man defenders to navigate traffic. The TE and slot cross at different depths, rubbing off their assigned defenders and creating separation.',
+      formation: 'standard',
       routes: [
         { receiverKey: 'slot', routeType: 'mesh', isPrimary: true },
         { receiverKey: 'te', routeType: 'crossing', isPrimary: false },

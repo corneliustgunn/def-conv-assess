@@ -81,6 +81,7 @@ const cover0Blitz: CoverageData = {
       id: 'c0b-bubble',
       name: 'Bubble Screen',
       description: 'Against a blitz, the fastest answer is the pre-snap bubble. Throw it immediately to the slot — the ball is out before the pressure arrives and your receiver has space to work.',
+      formation: 'standard',
       routes: [
         { receiverKey: 'slot', routeType: 'bubble', isPrimary: true },
         { receiverKey: 'wr1', routeType: 'go', isPrimary: false },
@@ -93,6 +94,7 @@ const cover0Blitz: CoverageData = {
       id: 'c0b-rb-flat',
       name: 'RB Flare / Checkdown',
       description: 'The RB releases into the flat as the first read. With all rushers attacking, the RB will be open in space before the blitz reaches the QB.',
+      formation: 'trips-right',
       routes: [
         { receiverKey: 'rb', routeType: 'flat', isPrimary: true },
         { receiverKey: 'wr1', routeType: 'go', isPrimary: false },
@@ -105,6 +107,7 @@ const cover0Blitz: CoverageData = {
       id: 'c0b-hot-slant',
       name: 'Hot Route Slant',
       description: 'Change WR1 to a slant pre-snap. The slant hits at 3–4 yards in 1 second — faster than any blitzer can reach the QB. High percentage gain every time.',
+      formation: 'standard',
       routes: [
         { receiverKey: 'wr1', routeType: 'slant', isPrimary: true },
         { receiverKey: 'rb', routeType: 'flat', isPrimary: false },

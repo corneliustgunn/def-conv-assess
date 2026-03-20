@@ -83,6 +83,7 @@ const patternMatch: CoverageData = {
   offensiveCounters: [
     {
       id: 'pm-mesh',
+      formation: 'standard',
       name: 'Mesh Concept',
       description: 'Mesh forces pattern-match defenders to decide who converts to man on whom. As two receivers cross, the defense must \'trade\' assignments — and one always gets lost in the confusion.',
       routes: [
@@ -96,6 +97,7 @@ const patternMatch: CoverageData = {
     },
     {
       id: 'pm-post-wheel',
+      formation: 'trips-right',
       name: 'Post-Wheel Combo',
       description: 'The TE runs a post (triggers a man conversion) while the RB wheels to the flat (too short to trigger conversion, defender stays in zone). One defender is always in the wrong coverage.',
       routes: [
@@ -109,6 +111,7 @@ const patternMatch: CoverageData = {
     },
     {
       id: 'pm-boundary-corner',
+      formation: 'trips-left',
       name: 'Boundary Corner (Force the Conversion)',
       description: 'WR1 runs a deep vertical to force the CB to convert to man. Then WR1 breaks on a corner route. If the CB doesn\'t convert cleanly or is late, the corner route is wide open.',
       routes: [

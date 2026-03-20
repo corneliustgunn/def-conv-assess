@@ -88,6 +88,7 @@ const tampa2: CoverageData = {
   offensiveCounters: [
     {
       id: 't2-corner',
+      formation: 'standard',
       name: 'Corner Route',
       description: 'The MLB plugs the seam, but that creates a gap on the boundary. WR1 runs vertical then breaks toward the corner of the end zone — the CB/safety gap is wide open.',
       routes: [
@@ -100,6 +101,7 @@ const tampa2: CoverageData = {
     },
     {
       id: 't2-dig',
+      formation: 'standard',
       name: 'Dig Route (Intermediate Void)',
       description: 'Tampa 2 leaves a window at 10–15 yards in the intermediate zone — the MLB dropped too deep and the safeties are wide. A sharp dig route hits right in this void.',
       routes: [
@@ -113,6 +115,7 @@ const tampa2: CoverageData = {
     },
     {
       id: 't2-mesh',
+      formation: 'standard',
       name: 'Mesh / Rub Routes',
       description: 'With the MLB committed deep, short crossing traffic underneath goes uncontested. Slot and TE run mesh routes through the vacated middle zone.',
       routes: [
