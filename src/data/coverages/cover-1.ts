@@ -52,25 +52,25 @@ const cover1: CoverageData = {
   diagram: {
     players: [
       // D-line
-      { id: 'LE', label: 'DE', role: 'dline', x: 36, y: 48 },
-      { id: 'DT1', label: 'DT', role: 'dline', x: 44, y: 48 },
-      { id: 'DT2', label: 'DT', role: 'dline', x: 56, y: 48 },
-      { id: 'RE', label: 'DE', role: 'dline', x: 64, y: 48 },
+      { id: 'LE', label: 'DE', role: 'dline', x: 36, y: 52 },
+      { id: 'DT1', label: 'DT', role: 'dline', x: 44, y: 52 },
+      { id: 'DT2', label: 'DT', role: 'dline', x: 56, y: 52 },
+      { id: 'RE', label: 'DE', role: 'dline', x: 64, y: 52 },
       // Linebackers
-      { id: 'LOLB', label: 'LB', role: 'linebacker', x: 28, y: 54, manTarget: 'TE' },
-      { id: 'MLB', label: 'LB', role: 'linebacker', x: 50, y: 54, manTarget: 'RB' },
-      { id: 'ROLB', label: 'LB', role: 'linebacker', x: 72, y: 54, manTarget: 'slot' },
+      { id: 'LOLB', label: 'LB', role: 'linebacker', x: 28, y: 46, manTarget: 'TE' },
+      { id: 'MLB', label: 'LB', role: 'linebacker', x: 50, y: 46, manTarget: 'RB' },
+      { id: 'ROLB', label: 'LB', role: 'linebacker', x: 72, y: 46, manTarget: 'slot' },
       // SS in the box (man on slot or TE)
-      { id: 'SS', label: 'SS', role: 'safety', x: 30, y: 57, manTarget: 'slot' },
+      { id: 'SS', label: 'SS', role: 'safety', x: 30, y: 43, manTarget: 'slot' },
       // FS single high center
-      { id: 'FS', label: 'FS', role: 'safety', x: 50, y: 82 },
+      { id: 'FS', label: 'FS', role: 'safety', x: 50, y: 18 },
       // Corners in press man
-      { id: 'LCB', label: 'CB', role: 'cornerback', x: 8, y: 49, manTarget: 'WR' },
-      { id: 'RCB', label: 'CB', role: 'cornerback', x: 92, y: 49, manTarget: 'WR' },
+      { id: 'LCB', label: 'CB', role: 'cornerback', x: 8, y: 51, manTarget: 'WR' },
+      { id: 'RCB', label: 'CB', role: 'cornerback', x: 92, y: 51, manTarget: 'WR' },
     ],
     annotations: [
-      { x: 50, y: 89, text: 'Single High Safety', style: 'zone-label' },
-      { x: 50, y: 94, text: 'All other defenders in man', style: 'zone-label' },
+      { x: 50, y: 11, text: 'Single High Safety', style: 'zone-label' },
+      { x: 50, y: 6, text: 'All other defenders in man', style: 'zone-label' },
     ],
   },
   relatedCoverages: ['cover-0', 'cover-3', 'cover-1-blitz'],

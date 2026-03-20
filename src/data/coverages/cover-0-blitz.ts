@@ -53,25 +53,25 @@ const cover0Blitz: CoverageData = {
   diagram: {
     players: [
       // D-line — base 4
-      { id: 'LE', label: 'DE', role: 'dline', x: 34, y: 47 },
-      { id: 'DT1', label: 'DT', role: 'dline', x: 43, y: 47 },
-      { id: 'DT2', label: 'DT', role: 'dline', x: 57, y: 47 },
-      { id: 'RE', label: 'DE', role: 'dline', x: 66, y: 47 },
+      { id: 'LE', label: 'DE', role: 'dline', x: 34, y: 53 },
+      { id: 'DT1', label: 'DT', role: 'dline', x: 43, y: 53 },
+      { id: 'DT2', label: 'DT', role: 'dline', x: 57, y: 53 },
+      { id: 'RE', label: 'DE', role: 'dline', x: 66, y: 53 },
       // Extra rushers (blitzing LBs)
       { id: 'LOLB', label: 'LB', role: 'blitzer', x: 28, y: 50, isBlitzing: true },
       { id: 'ROLB', label: 'LB', role: 'blitzer', x: 72, y: 50, isBlitzing: true },
       // MLB in man on RB
-      { id: 'MLB', label: 'LB', role: 'linebacker', x: 50, y: 53, manTarget: 'RB' },
+      { id: 'MLB', label: 'LB', role: 'linebacker', x: 50, y: 47, manTarget: 'RB' },
       // Safeties shallow in man (NOT deep)
-      { id: 'SS', label: 'SS', role: 'safety', x: 35, y: 55, manTarget: 'slot' },
-      { id: 'FS', label: 'FS', role: 'safety', x: 65, y: 55, manTarget: 'slot' },
+      { id: 'SS', label: 'SS', role: 'safety', x: 35, y: 45, manTarget: 'slot' },
+      { id: 'FS', label: 'FS', role: 'safety', x: 65, y: 45, manTarget: 'slot' },
       // Corners in press man
-      { id: 'LCB', label: 'CB', role: 'cornerback', x: 8, y: 49, manTarget: 'WR' },
-      { id: 'RCB', label: 'CB', role: 'cornerback', x: 92, y: 49, manTarget: 'WR' },
+      { id: 'LCB', label: 'CB', role: 'cornerback', x: 8, y: 51, manTarget: 'WR' },
+      { id: 'RCB', label: 'CB', role: 'cornerback', x: 92, y: 51, manTarget: 'WR' },
     ],
     annotations: [
-      { x: 50, y: 90, text: '⚠ NO DEEP HELP — BLITZ ALL OUT', style: 'warning' },
-      { x: 50, y: 96, text: '6+ rushers — QB has < 2 seconds', style: 'zone-label' },
+      { x: 50, y: 10, text: '⚠ NO DEEP HELP — BLITZ ALL OUT', style: 'warning' },
+      { x: 50, y: 4, text: '6+ rushers — QB has < 2 seconds', style: 'zone-label' },
     ],
   },
   relatedCoverages: ['cover-0', 'cover-1-blitz'],
