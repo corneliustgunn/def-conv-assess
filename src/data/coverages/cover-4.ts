@@ -86,6 +86,7 @@ const cover4: CoverageData = {
   offensiveCounters: [
     {
       id: 'c4-slant-wheel',
+      formation: 'tight',
       name: 'Slant + Wheel',
       description: 'Cover 4 puts all DBs deep, leaving only linebackers underneath. A WR slant and an RB wheel route both find wide-open grass. Get the ball out quickly before safeties can recover.',
       routes: [
@@ -99,6 +100,7 @@ const cover4: CoverageData = {
     },
     {
       id: 'c4-crossing',
+      formation: 'trips-left',
       name: 'Crossing Routes',
       description: 'With all four DBs playing deep zones, the intermediate level (8–15 yards) is completely undefended by anyone with pass coverage ability. Run crossing routes for easy completions.',
       routes: [
@@ -112,6 +114,7 @@ const cover4: CoverageData = {
     },
     {
       id: 'c4-curl-flat',
+      formation: 'standard',
       name: 'Quick Screen / Bubble',
       description: 'The bubble screen is the fastest kill shot against Cover 4. Throw it to the slot immediately at the snap — by the time the safety triggers down, your receiver already has a 5-yard gain.',
       routes: [

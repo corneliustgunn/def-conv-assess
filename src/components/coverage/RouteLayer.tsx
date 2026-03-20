@@ -1,7 +1,9 @@
-import type { OffensiveRoute, ReceiverKey, RouteType } from '../../data/types';
+import type { OffensiveRoute, ReceiverKey, RouteType, FormationType } from '../../data/types';
+import { FORMATIONS } from '../../data/formations';
 
 interface Props {
   routes: OffensiveRoute[];
+  formation?: FormationType;
 }
 
 // SVG dimensions match CoverageDiagram
@@ -11,15 +13,6 @@ const LOS_Y_PCT = 55; // LOS at 55% of height — offense below, defense above
 
 function toX(pct: number) { return (pct / 100) * W; }
 function toY(pct: number) { return (pct / 100) * H; }
-
-// Fixed receiver starting positions (% coords, below LOS which is at y=55%)
-const RECEIVER_STARTS: Record<ReceiverKey, { x: number; y: number }> = {
-  wr1:  { x: 6,  y: LOS_Y_PCT + 5 },   // left outside WR
-  wr2:  { x: 94, y: LOS_Y_PCT + 5 },   // right outside WR
-  slot: { x: 28, y: LOS_Y_PCT + 5 },   // left slot
-  te:   { x: 36, y: LOS_Y_PCT + 3 },   // tight end
-  rb:   { x: 52, y: LOS_Y_PCT + 4 },   // running back
-};
 
 // Determine if a receiver is on the left or right side of the field
 function isLeftSide(key: ReceiverKey): boolean {
@@ -38,8 +31,8 @@ function outsideDir(key: ReceiverKey): number {
 
 type Waypoint = { x: number; y: number };
 
-function getRouteWaypoints(key: ReceiverKey, routeType: RouteType): Waypoint[] {
-  const s = RECEIVER_STARTS[key];
+function getRouteWaypoints(key: ReceiverKey, routeType: RouteType, receiverStarts: typeof FORMATIONS['standard']['receiverStarts']): Waypoint[] {
+  const s = receiverStarts[key];
   const inDir = insideDir(key);
   const outDir = outsideDir(key);
 
@@ -127,10 +120,11 @@ interface RoutePathProps {
   route: OffensiveRoute;
   markerId: string;
   markerIdSecondary: string;
+  receiverStarts: typeof FORMATIONS['standard']['receiverStarts'];
 }
 
-function RoutePath({ route, markerId, markerIdSecondary }: RoutePathProps) {
-  const waypoints = getRouteWaypoints(route.receiverKey, route.routeType);
+function RoutePath({ route, markerId, markerIdSecondary, receiverStarts }: RoutePathProps) {
+  const waypoints = getRouteWaypoints(route.receiverKey, route.routeType, receiverStarts);
   const pathD = buildPath(waypoints);
   const endPt = waypoints[waypoints.length - 1];
   const endX = toX(endPt.x);
@@ -144,9 +138,9 @@ function RoutePath({ route, markerId, markerIdSecondary }: RoutePathProps) {
   const markId = isPrimary ? `url(#${markerId})` : `url(#${markerIdSecondary})`;
 
   // Label offset: push label slightly away from end of route
-  const start = RECEIVER_STARTS[route.receiverKey];
+  const start = receiverStarts[route.receiverKey];
   const dxDir = endPt.x > start.x ? 4 : endPt.x < start.x ? -4 : 0;
-  const dyDir = endPt.y < start.y ? -4 : 4; // routes generally go up (y decreases)
+  const dyDir = endPt.y < start.y ? -4 : 4; // routes go up toward defense (y decreases)
 
   return (
     <g opacity={opacity}>
@@ -176,9 +170,10 @@ function RoutePath({ route, markerId, markerIdSecondary }: RoutePathProps) {
   );
 }
 
-export default function RouteLayer({ routes }: Props) {
+export default function RouteLayer({ routes, formation = 'standard' }: Props) {
   const markerId = `route-arrow-primary-${Math.random().toString(36).slice(2, 7)}`;
   const markerIdSec = `route-arrow-secondary-${Math.random().toString(36).slice(2, 7)}`;
+  const receiverStarts = FORMATIONS[formation].receiverStarts;
 
   return (
     <>
@@ -192,11 +187,11 @@ export default function RouteLayer({ routes }: Props) {
       </defs>
       {/* Secondary routes first (drawn under primary) */}
       {routes.filter(r => !r.isPrimary).map((route, i) => (
-        <RoutePath key={`sec-${i}`} route={route} markerId={markerId} markerIdSecondary={markerIdSec} />
+        <RoutePath key={`sec-${i}`} route={route} markerId={markerId} markerIdSecondary={markerIdSec} receiverStarts={receiverStarts} />
       ))}
       {/* Primary route on top */}
       {routes.filter(r => r.isPrimary).map((route, i) => (
-        <RoutePath key={`pri-${i}`} route={route} markerId={markerId} markerIdSecondary={markerIdSec} />
+        <RoutePath key={`pri-${i}`} route={route} markerId={markerId} markerIdSecondary={markerIdSec} receiverStarts={receiverStarts} />
       ))}
     </>
   );

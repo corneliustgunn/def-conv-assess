@@ -19,6 +19,7 @@ export default function CounterCard({ counter, diagram, size = 'full' }: Props) 
         <CoverageDiagram
           diagram={diagram}
           offensiveRoutes={counter.routes}
+          formation={counter.formation}
           showZones={true}
           showArrows={false}
           showLabels={true}

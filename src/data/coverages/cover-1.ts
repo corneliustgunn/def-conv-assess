@@ -80,6 +80,7 @@ const cover1: CoverageData = {
       id: 'c1-four-verts',
       name: 'Four Verticals',
       description: 'One safety cannot cover four vertical routes. Run all four eligible receivers deep — the FS must choose one side, leaving the other side open.',
+      formation: 'empty',
       routes: [
         { receiverKey: 'wr1', routeType: 'go', isPrimary: false },
         { receiverKey: 'wr2', routeType: 'go', isPrimary: false },
@@ -94,6 +95,7 @@ const cover1: CoverageData = {
       id: 'c1-boundary-corner',
       name: 'Boundary Corner Route',
       description: 'The lone free safety is centered. A corner route to the boundary forces the CB to defend 1-on-1 far from safety help. No one can rotate over in time.',
+      formation: 'standard',
       routes: [
         { receiverKey: 'wr1', routeType: 'corner', isPrimary: true },
         { receiverKey: 'te', routeType: 'dig', isPrimary: false },
@@ -106,6 +108,7 @@ const cover1: CoverageData = {
       id: 'c1-mesh',
       name: 'Mesh Concept',
       description: 'Two receivers cross at different depths. Man defenders must navigate each other, creating a natural pick. One receiver always finds separation in the confusion.',
+      formation: 'standard',
       routes: [
         { receiverKey: 'slot', routeType: 'mesh', isPrimary: true },
         { receiverKey: 'te', routeType: 'crossing', isPrimary: false },

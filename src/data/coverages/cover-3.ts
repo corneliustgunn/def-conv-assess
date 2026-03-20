@@ -92,6 +92,7 @@ const cover3: CoverageData = {
   offensiveCounters: [
     {
       id: 'c3-corner',
+      formation: 'standard',
       name: 'Corner Route',
       description: 'The CB rotates inside to his deep third, vacating the sideline corner. Run WR1 on a corner route — vertical then breaking to the boundary. The CB and safety both have too far to travel.',
       routes: [
@@ -104,6 +105,7 @@ const cover3: CoverageData = {
     },
     {
       id: 'c3-flood',
+      formation: 'trips-left',
       name: 'Flood Concept',
       description: 'Overload one side with three routes: a deep post, a mid-depth curl, and a flat route. Three receivers, one deep zone — the FS or CB must pick one to cover.',
       routes: [
@@ -117,6 +119,7 @@ const cover3: CoverageData = {
     },
     {
       id: 'c3-dig-vert',
+      formation: 'empty',
       name: 'Dig + Vertical Stretch',
       description: 'WR1 runs a dig route across the middle while the TE goes vertical on the opposite seam. Cover 3 can only have one safety deep — one of these routes will come open.',
       routes: [

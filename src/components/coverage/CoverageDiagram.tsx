@@ -1,4 +1,5 @@
-import type { DiagramData, PlayerDot, MovementArrow, OffensiveRoute } from '../../data/types';
+import type { DiagramData, PlayerDot, MovementArrow, OffensiveRoute, FormationType } from '../../data/types';
+import { FORMATIONS } from '../../data/formations';
 import RouteLayer from './RouteLayer';
 import './CoverageDiagram.css';
 
@@ -9,6 +10,7 @@ interface Props {
   showLabels?: boolean;
   showAnnotations?: boolean;
   offensiveRoutes?: OffensiveRoute[];
+  formation?: FormationType;
   size?: 'small' | 'medium' | 'large';
 }
 
@@ -159,40 +161,91 @@ function PlayerDotComponent({ player, showLabel }: { player: PlayerDot; showLabe
   );
 }
 
-function OffenseSymbols() {
-  // Static offense: center + 2 guards + 2 tackles + QB + RB + 2 WRs + TE + slot
+function OffenseSymbols({ formation = 'standard' }: { formation?: FormationType }) {
   const los = toSvgY(LOS_Y * 100);
-  const yOff = los + 16; // offense players slightly below LOS
-  const positions = [
-    { x: 250, label: 'C' },
-    { x: 225, label: 'G' },
-    { x: 275, label: 'G' },
-    { x: 200, label: 'T' },
-    { x: 300, label: 'T' },
-    { x: 180, label: 'TE' },
-  ];
+  const yOff = los + 16; // OL line y position (just below LOS)
+  const op = 0.45; // shared opacity for ghost symbols
+  const { receiverStarts } = FORMATIONS[formation];
+
+  // Convert receiver % positions to SVG pixel coords
+  const rx = (key: keyof typeof receiverStarts) => toSvgX(receiverStarts[key].x);
+  const ry = (key: keyof typeof receiverStarts) => toSvgY(receiverStarts[key].y);
+
+  // OL core: C, G, G, T, T (always the same)
+  const olCore = [250, 225, 275, 200, 300];
+
+  function Square({ cx, y = yOff }: { cx: number; y?: number }) {
+    return <rect x={cx - 9} y={y - 9} width={18} height={18} fill="none" stroke="#fff" strokeWidth={1.5} opacity={op} />;
+  }
+  function Dot({ cx, cy }: { cx: number; cy: number }) {
+    return <circle cx={cx} cy={cy} r={9} fill="none" stroke="#fff" strokeWidth={1.5} opacity={op} />;
+  }
+
+  if (formation === 'standard') {
+    return (
+      <>
+        {olCore.map(x => <Square key={x} cx={x} />)}
+        <Square cx={180} />   {/* TE on left OL */}
+        <Dot cx={rx('wr1')} cy={ry('wr1')} />
+        <Dot cx={rx('wr2')} cy={ry('wr2')} />
+        <Dot cx={rx('slot')} cy={ry('slot')} />
+        <Dot cx={250} cy={los + 38} />  {/* QB under center */}
+      </>
+    );
+  }
+
+  if (formation === 'trips-right') {
+    return (
+      <>
+        {olCore.map(x => <Square key={x} cx={x} />)}
+        <Dot cx={rx('wr1')} cy={ry('wr1')} />      {/* lone WR left */}
+        <Dot cx={rx('te')}  cy={ry('te')} />       {/* inner trips */}
+        <Dot cx={rx('slot')} cy={ry('slot')} />    {/* middle trips */}
+        <Dot cx={rx('wr2')} cy={ry('wr2')} />      {/* outside trips */}
+        <Dot cx={250} cy={los + 38} />             {/* QB */}
+        <Dot cx={250} cy={los + 55} />             {/* RB behind QB */}
+      </>
+    );
+  }
+
+  if (formation === 'trips-left') {
+    return (
+      <>
+        {olCore.map(x => <Square key={x} cx={x} />)}
+        <Dot cx={rx('wr1')} cy={ry('wr1')} />      {/* outside trips left */}
+        <Dot cx={rx('slot')} cy={ry('slot')} />    {/* middle trips left */}
+        <Dot cx={rx('te')}  cy={ry('te')} />       {/* inner trips left */}
+        <Dot cx={rx('wr2')} cy={ry('wr2')} />      {/* lone WR right */}
+        <Dot cx={250} cy={los + 38} />             {/* QB */}
+        <Dot cx={250} cy={los + 55} />             {/* RB behind QB */}
+      </>
+    );
+  }
+
+  if (formation === 'empty') {
+    return (
+      <>
+        {olCore.map(x => <Square key={x} cx={x} />)}
+        <Dot cx={rx('wr1')} cy={ry('wr1')} />      {/* far left */}
+        <Dot cx={rx('slot')} cy={ry('slot')} />    {/* left inside */}
+        <Dot cx={rx('rb')}   cy={ry('rb')} />      {/* left middle (5th receiver) */}
+        <Dot cx={rx('te')}  cy={ry('te')} />       {/* right inside */}
+        <Dot cx={rx('wr2')} cy={ry('wr2')} />      {/* far right */}
+        <Dot cx={250} cy={los + 55} />             {/* QB shotgun */}
+      </>
+    );
+  }
+
+  // tight (12 personnel): two TEs flanking OL
   return (
     <>
-      {positions.map((pos) => (
-        <rect
-          key={pos.label + pos.x}
-          x={pos.x - 9}
-          y={yOff - 9}
-          width={18}
-          height={18}
-          fill="none"
-          stroke="#fff"
-          strokeWidth={1.5}
-          opacity={0.45}
-        />
-      ))}
-      {/* QB */}
-      <circle cx={250} cy={los + 38} r={9} fill="none" stroke="#fff" strokeWidth={1.5} opacity={0.45} />
-      {/* WRs */}
-      <circle cx={30} cy={yOff} r={9} fill="none" stroke="#fff" strokeWidth={1.5} opacity={0.45} />
-      <circle cx={470} cy={yOff} r={9} fill="none" stroke="#fff" strokeWidth={1.5} opacity={0.45} />
-      {/* Slot */}
-      <circle cx={140} cy={yOff + 4} r={9} fill="none" stroke="#fff" strokeWidth={1.5} opacity={0.45} />
+      {olCore.map(x => <Square key={x} cx={x} />)}
+      <Square cx={180} />                          {/* TE1 on left OL */}
+      <Square cx={320} />                          {/* TE2 on right OL */}
+      <Dot cx={rx('wr1')} cy={ry('wr1')} />
+      <Dot cx={rx('wr2')} cy={ry('wr2')} />
+      <Dot cx={250} cy={los + 38} />               {/* QB under center */}
+      <Dot cx={250} cy={los + 62} />               {/* RB deep */}
     </>
   );
 }
@@ -204,6 +257,7 @@ export default function CoverageDiagram({
   showLabels = true,
   showAnnotations = true,
   offensiveRoutes,
+  formation,
   size = 'medium',
 }: Props) {
   const sizeClass = `diagram--${size}`;
@@ -225,11 +279,11 @@ export default function CoverageDiagram({
         </defs>
 
         <FieldBackground />
-        <OffenseSymbols />
+        <OffenseSymbols formation={formation} />
         <ZoneShapes players={diagram.players} visible={showZones} />
 
         {offensiveRoutes && offensiveRoutes.length > 0 && (
-          <RouteLayer routes={offensiveRoutes} />
+          <RouteLayer routes={offensiveRoutes} formation={formation} />
         )}
 
         {showArrows && diagram.movementArrows?.map((arrow) => (

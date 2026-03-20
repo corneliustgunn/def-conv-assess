@@ -87,6 +87,7 @@ const cover2: CoverageData = {
   offensiveCounters: [
     {
       id: 'c2-seam',
+      formation: 'tight',
       name: 'Seam Attack',
       description: 'The gap between the two safeties is the Cover 2 kill shot. Run the TE or slot straight up the seam — neither safety can cover it without giving up their half.',
       routes: [
@@ -100,6 +101,7 @@ const cover2: CoverageData = {
     },
     {
       id: 'c2-corner',
+      formation: 'trips-left',
       name: 'Corner Route',
       description: 'Run WR1 vertical then break toward the corner of the end zone. The CB pressed and dropped to the flat — he cannot recover. The safety is too far inside.',
       routes: [
@@ -112,6 +114,7 @@ const cover2: CoverageData = {
     },
     {
       id: 'c2-flood',
+      formation: 'standard',
       name: 'Curl-Flat Combo',
       description: 'Put WR1 on a curl and the slot on a flat route on the same side. The CB must choose: cover the flat or the curl. One is always open.',
       routes: [

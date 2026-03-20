@@ -3,6 +3,7 @@ export type PlayerRole = 'cornerback' | 'safety' | 'linebacker' | 'nickel' | 'dl
 export type Difficulty = 'beginner' | 'intermediate' | 'advanced';
 export type QuestionType = 'identify-coverage' | 'identify-weakness' | 'spot-the-difference';
 export type IndicatorCategory = 'pre-snap' | 'post-snap' | 'safety-alignment' | 'cornerback-alignment';
+export type FormationType = 'standard' | 'trips-right' | 'trips-left' | 'empty' | 'tight';
 
 export interface ZoneShape {
   type: string;
@@ -15,7 +16,7 @@ export interface PlayerDot {
   label: string;
   role: PlayerRole;
   x: number; // 0-100 % of SVG width
-  y: number; // 0-100 % of SVG height (LOS ≈ 45%)
+  y: number; // 0-100 % of SVG height (LOS ≈ 55%, offense below)
   coverageZone?: ZoneShape;
   manTarget?: string;
   isBlitzing?: boolean;
@@ -65,6 +66,7 @@ export interface OffensiveCounter {
   name: string;
   description: string;
   routes: OffensiveRoute[];
+  formation?: FormationType;
   requiredAssets: string[];
   auditeTrigger: string;
   difficulty: 'easy' | 'intermediate' | 'advanced';

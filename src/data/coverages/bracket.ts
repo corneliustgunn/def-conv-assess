@@ -80,6 +80,7 @@ const bracket: CoverageData = {
   offensiveCounters: [
     {
       id: 'bkt-unbracketed-go',
+      formation: 'empty',
       name: 'Attack the Unbracketed WR',
       description: 'Two defenders on one receiver means everyone else is in single coverage. Ignore the bracketed receiver entirely. Find who is unbracketed and throw them the go route.',
       routes: [
@@ -92,6 +93,7 @@ const bracket: CoverageData = {
     },
     {
       id: 'bkt-iso-hilo',
+      formation: 'standard',
       name: 'Iso Hi-Lo on Unbracketed Side',
       description: 'Put your unbracketed receivers in a hi-lo combination — one deep, one short on the same side. The single defender guarding that side cannot cover both levels.',
       routes: [
@@ -105,6 +107,7 @@ const bracket: CoverageData = {
     },
     {
       id: 'bkt-flood-unbracketed',
+      formation: 'trips-right',
       name: 'Flood the Unbracketed Side',
       description: 'Stack multiple receivers on the unbracketed side — the single coverage CB cannot guard all of them. Overload that side while the bracketed WR keeps two defenders occupied.',
       routes: [

@@ -81,6 +81,7 @@ const cover2Man: CoverageData = {
   offensiveCounters: [
     {
       id: 'c2m-crossing',
+      formation: 'standard',
       name: 'Crossing Mesh',
       description: 'Man CBs must follow receivers wherever they go. Cross two receivers in front of each other — the defenders collide or have to navigate around each other, breaking coverage.',
       routes: [
@@ -94,6 +95,7 @@ const cover2Man: CoverageData = {
     },
     {
       id: 'c2m-seam',
+      formation: 'tight',
       name: 'Seam Route',
       description: 'Even with man coverage underneath, the deep middle between the two safeties is unguarded. The TE on a seam route has a clear lane if he wins the release.',
       routes: [
@@ -106,6 +108,7 @@ const cover2Man: CoverageData = {
     },
     {
       id: 'c2m-hilo',
+      formation: 'standard',
       name: 'Hi-Lo (Shallow Cross + Post)',
       description: 'WR1 runs a deep post while the slot runs a shallow crossing route. The post pulls safety attention deep while the shallow cross sits in the vacated middle zone.',
       routes: [
