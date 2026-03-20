@@ -47,6 +47,29 @@ export interface IndicatorGroup {
   tips: string[];
 }
 
+export type ReceiverKey = 'wr1' | 'wr2' | 'slot' | 'te' | 'rb';
+
+export type RouteType =
+  | 'go' | 'post' | 'corner' | 'dig' | 'slant'
+  | 'crossing' | 'seam' | 'flat' | 'bubble' | 'curl' | 'wheel' | 'mesh';
+
+export interface OffensiveRoute {
+  receiverKey: ReceiverKey;
+  routeType: RouteType;
+  isPrimary: boolean;
+  label?: string;
+}
+
+export interface OffensiveCounter {
+  id: string;
+  name: string;
+  description: string;
+  routes: OffensiveRoute[];
+  requiredAssets: string[];
+  auditeTrigger: string;
+  difficulty: 'easy' | 'intermediate' | 'advanced';
+}
+
 export interface CoverageData {
   id: string;
   name: string;
@@ -60,6 +83,7 @@ export interface CoverageData {
   diagram: DiagramData;
   relatedCoverages: string[];
   tags: string[];
+  offensiveCounters: OffensiveCounter[];
 }
 
 export interface QuizQuestion {

@@ -78,6 +78,45 @@ const cover2Man: CoverageData = {
   },
   relatedCoverages: ['cover-2', 'cover-0', 'cover-1'],
   tags: ['man', 'two-high', 'disguise', 'seam-weakness'],
+  offensiveCounters: [
+    {
+      id: 'c2m-crossing',
+      name: 'Crossing Mesh',
+      description: 'Man CBs must follow receivers wherever they go. Cross two receivers in front of each other — the defenders collide or have to navigate around each other, breaking coverage.',
+      routes: [
+        { receiverKey: 'slot', routeType: 'mesh', isPrimary: true },
+        { receiverKey: 'te', routeType: 'crossing', isPrimary: false },
+        { receiverKey: 'wr1', routeType: 'go', isPrimary: false },
+      ],
+      requiredAssets: ['Quick slot', 'TE with short-area quickness'],
+      auditeTrigger: 'Two safeties deep but CBs are in man — cross receivers to create picks.',
+      difficulty: 'intermediate',
+    },
+    {
+      id: 'c2m-seam',
+      name: 'Seam Route',
+      description: 'Even with man coverage underneath, the deep middle between the two safeties is unguarded. The TE on a seam route has a clear lane if he wins the release.',
+      routes: [
+        { receiverKey: 'te', routeType: 'seam', isPrimary: true },
+        { receiverKey: 'wr2', routeType: 'go', isPrimary: false },
+      ],
+      requiredAssets: ['Athletic TE who can win a release vs. a linebacker'],
+      auditeTrigger: 'Two safeties split wide — even in man, the seam between them is open.',
+      difficulty: 'easy',
+    },
+    {
+      id: 'c2m-hilo',
+      name: 'Hi-Lo (Shallow Cross + Post)',
+      description: 'WR1 runs a deep post while the slot runs a shallow crossing route. The post pulls safety attention deep while the shallow cross sits in the vacated middle zone.',
+      routes: [
+        { receiverKey: 'wr1', routeType: 'post', isPrimary: false },
+        { receiverKey: 'slot', routeType: 'crossing', isPrimary: true },
+      ],
+      requiredAssets: ['WR1 who can sell the deep route', 'Quick slot receiver'],
+      auditeTrigger: 'Man coverage with safeties split — hi-lo stresses the middle.',
+      difficulty: 'intermediate',
+    },
+  ],
 };
 
 export default cover2Man;

@@ -6,6 +6,7 @@ import CoverageDetailPage from './pages/CoverageDetailPage';
 import QuizLandingPage from './pages/QuizLandingPage';
 import QuizSessionPage from './pages/QuizSessionPage';
 import QuizResultsPage from './pages/QuizResultsPage';
+import AudiblePage from './pages/AudiblePage';
 import './App.css';
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
             <Route path="/quiz" element={<QuizLandingPage />} />
             <Route path="/quiz/session" element={<QuizSessionPage />} />
             <Route path="/quiz/results" element={<QuizResultsPage />} />
+            <Route path="/audible" element={<AudiblePage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>

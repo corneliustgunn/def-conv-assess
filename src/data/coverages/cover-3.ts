@@ -89,6 +89,46 @@ const cover3: CoverageData = {
   },
   relatedCoverages: ['cover-1', 'cover-4', 'tampa-2'],
   tags: ['zone', 'single-high', 'three-deep', 'corner-route-weakness'],
+  offensiveCounters: [
+    {
+      id: 'c3-corner',
+      name: 'Corner Route',
+      description: 'The CB rotates inside to his deep third, vacating the sideline corner. Run WR1 on a corner route — vertical then breaking to the boundary. The CB and safety both have too far to travel.',
+      routes: [
+        { receiverKey: 'wr1', routeType: 'corner', isPrimary: true },
+        { receiverKey: 'te', routeType: 'dig', isPrimary: false },
+      ],
+      requiredAssets: ['WR1 with a clean release at the top of the route'],
+      auditeTrigger: 'CB rotating inside to deep third — corner route attacks the gap he left.',
+      difficulty: 'easy',
+    },
+    {
+      id: 'c3-flood',
+      name: 'Flood Concept',
+      description: 'Overload one side with three routes: a deep post, a mid-depth curl, and a flat route. Three receivers, one deep zone — the FS or CB must pick one to cover.',
+      routes: [
+        { receiverKey: 'slot', routeType: 'post', isPrimary: false },
+        { receiverKey: 'wr1', routeType: 'curl', isPrimary: true },
+        { receiverKey: 'rb', routeType: 'flat', isPrimary: false },
+      ],
+      requiredAssets: ['Slot on the post', 'RB in the flat as outlet'],
+      auditeTrigger: 'Three-deep zone — overload one side and force a coverage breakdown.',
+      difficulty: 'intermediate',
+    },
+    {
+      id: 'c3-dig-vert',
+      name: 'Dig + Vertical Stretch',
+      description: 'WR1 runs a dig route across the middle while the TE goes vertical on the opposite seam. Cover 3 can only have one safety deep — one of these routes will come open.',
+      routes: [
+        { receiverKey: 'wr1', routeType: 'dig', isPrimary: true },
+        { receiverKey: 'te', routeType: 'seam', isPrimary: false },
+        { receiverKey: 'wr2', routeType: 'go', isPrimary: false },
+      ],
+      requiredAssets: ['WR1 with a crisp dig break', 'TE speed to stretch vertically'],
+      auditeTrigger: 'Single high safety — stretch him vertically with seam while hitting the dig.',
+      difficulty: 'intermediate',
+    },
+  ],
 };
 
 export default cover3;

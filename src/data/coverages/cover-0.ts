@@ -73,6 +73,45 @@ const cover0: CoverageData = {
   },
   relatedCoverages: ['cover-1', 'cover-0-blitz', 'cover-2-man'],
   tags: ['man', 'no-safety', 'aggressive', 'press'],
+  offensiveCounters: [
+    {
+      id: 'c0-verticals',
+      name: 'Verticals',
+      description: 'No safety help means every vertical route is 1-on-1 deep. Your fastest receiver wins a go route for a big play. The defender has no help over the top — throw it up.',
+      routes: [
+        { receiverKey: 'wr1', routeType: 'go', isPrimary: true },
+        { receiverKey: 'wr2', routeType: 'go', isPrimary: false },
+        { receiverKey: 'te', routeType: 'seam', isPrimary: false },
+      ],
+      requiredAssets: ['Fast WR1 with speed advantage over CB'],
+      auditeTrigger: 'Both safeties are shallow or in the box — no one is deep. Go route is open.',
+      difficulty: 'easy',
+    },
+    {
+      id: 'c0-bubble',
+      name: 'Bubble Screen',
+      description: 'With everyone in tight press man, the bubble screen hits before anyone can react. The slot catches it lateral and turns upfield before the CB can disengage.',
+      routes: [
+        { receiverKey: 'slot', routeType: 'bubble', isPrimary: true },
+        { receiverKey: 'wr1', routeType: 'go', isPrimary: false },
+      ],
+      requiredAssets: ['Shifty slot receiver', 'WR1 as vertical decoy'],
+      auditeTrigger: 'Slot CB is pressed inside — the bubble to the slot has space outside.',
+      difficulty: 'easy',
+    },
+    {
+      id: 'c0-mesh',
+      name: 'Mesh / Rub Routes',
+      description: 'Crossing routes force man defenders to navigate traffic. The TE and slot cross at different depths, rubbing off their assigned defenders and creating separation.',
+      routes: [
+        { receiverKey: 'slot', routeType: 'mesh', isPrimary: true },
+        { receiverKey: 'te', routeType: 'crossing', isPrimary: false },
+      ],
+      requiredAssets: ['Slot with quick feet', 'TE who can release off the line'],
+      auditeTrigger: 'Man coverage all around — cross two receivers to create a natural pick.',
+      difficulty: 'intermediate',
+    },
+  ],
 };
 
 export default cover0;

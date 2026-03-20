@@ -1,4 +1,5 @@
-import type { DiagramData, PlayerDot, MovementArrow } from '../../data/types';
+import type { DiagramData, PlayerDot, MovementArrow, OffensiveRoute } from '../../data/types';
+import RouteLayer from './RouteLayer';
 import './CoverageDiagram.css';
 
 interface Props {
@@ -7,6 +8,7 @@ interface Props {
   showArrows?: boolean;
   showLabels?: boolean;
   showAnnotations?: boolean;
+  offensiveRoutes?: OffensiveRoute[];
   size?: 'small' | 'medium' | 'large';
 }
 
@@ -201,6 +203,7 @@ export default function CoverageDiagram({
   showArrows = true,
   showLabels = true,
   showAnnotations = true,
+  offensiveRoutes,
   size = 'medium',
 }: Props) {
   const sizeClass = `diagram--${size}`;
@@ -224,6 +227,10 @@ export default function CoverageDiagram({
         <FieldBackground />
         <OffenseSymbols />
         <ZoneShapes players={diagram.players} visible={showZones} />
+
+        {offensiveRoutes && offensiveRoutes.length > 0 && (
+          <RouteLayer routes={offensiveRoutes} />
+        )}
 
         {showArrows && diagram.movementArrows?.map((arrow) => (
           <Arrow key={`${arrow.fromPlayerId}-arrow`} arrow={arrow} players={diagram.players} visible={showArrows} />

@@ -80,6 +80,46 @@ const patternMatch: CoverageData = {
   },
   relatedCoverages: ['cover-4', 'cover-6', 'bracket'],
   tags: ['hybrid', 'pattern-match', 'advanced', 'zone-to-man', 'quarters'],
+  offensiveCounters: [
+    {
+      id: 'pm-mesh',
+      name: 'Mesh Concept',
+      description: 'Mesh forces pattern-match defenders to decide who converts to man on whom. As two receivers cross, the defense must \'trade\' assignments — and one always gets lost in the confusion.',
+      routes: [
+        { receiverKey: 'slot', routeType: 'mesh', isPrimary: true },
+        { receiverKey: 'te', routeType: 'crossing', isPrimary: false },
+        { receiverKey: 'wr1', routeType: 'go', isPrimary: false },
+      ],
+      requiredAssets: ['Quick slot and TE who read the crossing exchange'],
+      auditeTrigger: 'Cover 4 shell — run mesh to exploit the conversion delay.',
+      difficulty: 'intermediate',
+    },
+    {
+      id: 'pm-post-wheel',
+      name: 'Post-Wheel Combo',
+      description: 'The TE runs a post (triggers a man conversion) while the RB wheels to the flat (too short to trigger conversion, defender stays in zone). One defender is always in the wrong coverage.',
+      routes: [
+        { receiverKey: 'te', routeType: 'post', isPrimary: false },
+        { receiverKey: 'rb', routeType: 'wheel', isPrimary: true },
+        { receiverKey: 'wr1', routeType: 'go', isPrimary: false },
+      ],
+      requiredAssets: ['TE with speed on the post', 'RB who can run the wheel cleanly'],
+      auditeTrigger: 'Pattern-match — stress the zone-to-man conversion with different route depths.',
+      difficulty: 'intermediate',
+    },
+    {
+      id: 'pm-boundary-corner',
+      name: 'Boundary Corner (Force the Conversion)',
+      description: 'WR1 runs a deep vertical to force the CB to convert to man. Then WR1 breaks on a corner route. If the CB doesn\'t convert cleanly or is late, the corner route is wide open.',
+      routes: [
+        { receiverKey: 'wr1', routeType: 'corner', isPrimary: true },
+        { receiverKey: 'slot', routeType: 'dig', isPrimary: false },
+      ],
+      requiredAssets: ['WR1 who can sell the vertical before breaking on the corner'],
+      auditeTrigger: 'Pattern-match CB in zone shell — force the conversion with a vertical then corner.',
+      difficulty: 'advanced',
+    },
+  ],
 };
 
 export default patternMatch;

@@ -21,6 +21,12 @@ export default function NavBar() {
         >
           Quiz
         </NavLink>
+        <NavLink
+          to="/audible"
+          className={({ isActive }) => `navbar__link${isActive ? ' navbar__link--active' : ''}`}
+        >
+          Audible
+        </NavLink>
       </div>
     </nav>
   );

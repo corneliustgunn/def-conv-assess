@@ -83,6 +83,46 @@ const cover4: CoverageData = {
   },
   relatedCoverages: ['cover-2', 'cover-3', 'cover-6', 'pattern-match'],
   tags: ['zone', 'four-deep', 'prevent', 'conservative', 'quarters'],
+  offensiveCounters: [
+    {
+      id: 'c4-slant-wheel',
+      name: 'Slant + Wheel',
+      description: 'Cover 4 puts all DBs deep, leaving only linebackers underneath. A WR slant and an RB wheel route both find wide-open grass. Get the ball out quickly before safeties can recover.',
+      routes: [
+        { receiverKey: 'wr1', routeType: 'slant', isPrimary: true },
+        { receiverKey: 'rb', routeType: 'wheel', isPrimary: false },
+        { receiverKey: 'wr2', routeType: 'go', isPrimary: false },
+      ],
+      requiredAssets: ['Quick WR on the slant', 'Pass-catching RB'],
+      auditeTrigger: 'Four DBs deep, only linebackers underneath — short routes are wide open.',
+      difficulty: 'easy',
+    },
+    {
+      id: 'c4-crossing',
+      name: 'Crossing Routes',
+      description: 'With all four DBs playing deep zones, the intermediate level (8–15 yards) is completely undefended by anyone with pass coverage ability. Run crossing routes for easy completions.',
+      routes: [
+        { receiverKey: 'slot', routeType: 'crossing', isPrimary: true },
+        { receiverKey: 'te', routeType: 'dig', isPrimary: false },
+        { receiverKey: 'wr1', routeType: 'go', isPrimary: false },
+      ],
+      requiredAssets: ['Slot receiver with YAC ability after the catch'],
+      auditeTrigger: 'Cover 4 shell — attack the linebacker level with crossers and dig routes.',
+      difficulty: 'intermediate',
+    },
+    {
+      id: 'c4-curl-flat',
+      name: 'Quick Screen / Bubble',
+      description: 'The bubble screen is the fastest kill shot against Cover 4. Throw it to the slot immediately at the snap — by the time the safety triggers down, your receiver already has a 5-yard gain.',
+      routes: [
+        { receiverKey: 'slot', routeType: 'bubble', isPrimary: true },
+        { receiverKey: 'wr1', routeType: 'go', isPrimary: false },
+      ],
+      requiredAssets: ['Slot with speed and agility in space'],
+      auditeTrigger: 'Four deep, slot CB is 10+ yards away — bubble is open immediately.',
+      difficulty: 'easy',
+    },
+  ],
 };
 
 export default cover4;

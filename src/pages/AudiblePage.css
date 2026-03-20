@@ -1,0 +1,187 @@
+.audible {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 16px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.audible__header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.audible__title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: #e2e8f0;
+}
+
+.audible__subtitle {
+  margin: 0;
+  font-size: 14px;
+  color: #64748b;
+}
+
+/* ── Coverage selector chips ── */
+
+.audible__selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.audible__chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #253347;
+  background: #111c2a;
+  cursor: pointer;
+  transition: border-color 0.12s, background 0.12s;
+}
+
+.audible__chip:hover {
+  border-color: #4a9eff;
+  background: #0d1f35;
+}
+
+.audible__chip--active {
+  border-color: currentColor;
+}
+
+/* Family color tints */
+.audible__chip--zone {
+  color: #60a5fa;
+}
+
+.audible__chip--man {
+  color: #f87171;
+}
+
+.audible__chip--hybrid {
+  color: #a78bfa;
+}
+
+.audible__chip--zone.audible__chip--active {
+  background: rgba(96, 165, 250, 0.1);
+}
+
+.audible__chip--man.audible__chip--active {
+  background: rgba(248, 113, 113, 0.1);
+}
+
+.audible__chip--hybrid.audible__chip--active {
+  background: rgba(167, 139, 250, 0.1);
+}
+
+.audible__chip-short {
+  font-size: 11px;
+  font-weight: 700;
+  font-family: monospace;
+}
+
+.audible__chip-name {
+  font-size: 10px;
+  color: #94a3b8;
+  white-space: nowrap;
+}
+
+/* ── Result panel ── */
+
+.audible__result {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.audible__result-header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.audible__result-coverage {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.audible__result-short {
+  font-size: 11px;
+  font-weight: 700;
+  color: #4a9eff;
+  background: #0d1f35;
+  border: 1px solid #1e3a5f;
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-family: monospace;
+}
+
+.audible__result-name {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #e2e8f0;
+}
+
+.audible__trigger-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background: rgba(251, 191, 36, 0.08);
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+
+.audible__trigger-icon {
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.audible__trigger-text {
+  font-size: 13px;
+  color: #fcd34d;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+/* ── Counter cards row ── */
+
+.audible__counters {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #253347 transparent;
+}
+
+.audible__counters::-webkit-scrollbar {
+  height: 4px;
+}
+
+.audible__counters::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.audible__counters::-webkit-scrollbar-thumb {
+  background: #253347;
+  border-radius: 2px;
+}
+
+.audible__empty {
+  font-size: 14px;
+  color: #64748b;
+  text-align: center;
+  padding: 32px 0;
+}

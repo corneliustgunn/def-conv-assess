@@ -182,8 +182,70 @@
   color: #4a9eff;
 }
 
+.detail__attack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  background: #111c2a;
+  border: 1px solid #1e3a5f;
+  border-radius: 12px;
+  margin-top: 4px;
+}
+
+.detail__attack-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.detail__attack-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fbbf24;
+  margin: 0;
+}
+
+.detail__attack-icon {
+  font-size: 18px;
+}
+
+.detail__attack-subtitle {
+  margin: 0;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.detail__attack-cards {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #253347 transparent;
+}
+
+.detail__attack-cards::-webkit-scrollbar {
+  height: 4px;
+}
+
+.detail__attack-cards::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.detail__attack-cards::-webkit-scrollbar-thumb {
+  background: #253347;
+  border-radius: 2px;
+}
+
 .detail__quiz-cta {
   display: flex;
   justify-content: center;
+  gap: 12px;
   padding-top: 8px;
+  flex-wrap: wrap;
 }

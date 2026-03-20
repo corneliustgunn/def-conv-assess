@@ -77,6 +77,46 @@ const bracket: CoverageData = {
   },
   relatedCoverages: ['cover-1', 'cover-2-man', 'pattern-match'],
   tags: ['hybrid', 'man', 'double-coverage', 'advanced', 'single-high'],
+  offensiveCounters: [
+    {
+      id: 'bkt-unbracketed-go',
+      name: 'Attack the Unbracketed WR',
+      description: 'Two defenders on one receiver means everyone else is in single coverage. Ignore the bracketed receiver entirely. Find who is unbracketed and throw them the go route.',
+      routes: [
+        { receiverKey: 'wr2', routeType: 'go', isPrimary: true },
+        { receiverKey: 'wr1', routeType: 'go', isPrimary: false, label: 'Bracketed (decoy)' },
+      ],
+      requiredAssets: ['Identify your unbracketed receiver pre-snap'],
+      auditeTrigger: 'See CB underneath + safety over one WR — that WR is bracketed. Attack everyone else.',
+      difficulty: 'easy',
+    },
+    {
+      id: 'bkt-iso-hilo',
+      name: 'Iso Hi-Lo on Unbracketed Side',
+      description: 'Put your unbracketed receivers in a hi-lo combination — one deep, one short on the same side. The single defender guarding that side cannot cover both levels.',
+      routes: [
+        { receiverKey: 'wr2', routeType: 'post', isPrimary: true },
+        { receiverKey: 'slot', routeType: 'flat', isPrimary: false },
+        { receiverKey: 'wr1', routeType: 'go', isPrimary: false, label: 'Bracketed (decoy)' },
+      ],
+      requiredAssets: ['WR2 on a post or go route', 'Slot to work the flat'],
+      auditeTrigger: 'Bracket on WR1 — set up hi-lo on the other side with single coverage.',
+      difficulty: 'intermediate',
+    },
+    {
+      id: 'bkt-flood-unbracketed',
+      name: 'Flood the Unbracketed Side',
+      description: 'Stack multiple receivers on the unbracketed side — the single coverage CB cannot guard all of them. Overload that side while the bracketed WR keeps two defenders occupied.',
+      routes: [
+        { receiverKey: 'wr2', routeType: 'corner', isPrimary: true },
+        { receiverKey: 'rb', routeType: 'wheel', isPrimary: false },
+        { receiverKey: 'wr1', routeType: 'go', isPrimary: false, label: 'Bracketed (decoy)' },
+      ],
+      requiredAssets: ['Multiple weapons on the unbracketed side'],
+      auditeTrigger: 'Bracket takes away your best WR — concentrate routes on the other side.',
+      difficulty: 'intermediate',
+    },
+  ],
 };
 
 export default bracket;
