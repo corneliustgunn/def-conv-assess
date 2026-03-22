@@ -14,6 +14,7 @@ export default function CoverageCard({ coverage }: Props) {
       <div className="coverage-card__diagram">
         <CoverageDiagram
           diagram={coverage.diagram}
+          formation={coverage.formation}
           size="small"
           showZones={false}
           showArrows={false}

@@ -73,6 +73,7 @@ const cover1: CoverageData = {
       { x: 50, y: 6, text: 'All other defenders in man', style: 'zone-label' },
     ],
   },
+  formation: 'standard',
   relatedCoverages: ['cover-0', 'cover-3', 'cover-1-blitz'],
   tags: ['man', 'single-high', 'one-safety-deep'],
   offensiveCounters: [

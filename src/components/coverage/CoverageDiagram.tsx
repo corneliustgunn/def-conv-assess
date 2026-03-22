@@ -189,7 +189,8 @@ function OffenseSymbols({ formation = 'standard' }: { formation?: FormationType 
         <Dot cx={rx('wr1')} cy={ry('wr1')} />
         <Dot cx={rx('wr2')} cy={ry('wr2')} />
         <Dot cx={rx('slot')} cy={ry('slot')} />
-        <Dot cx={250} cy={los + 38} />  {/* QB under center */}
+        <Dot cx={250} cy={los + 38} />         {/* QB under center */}
+        <Dot cx={rx('rb')} cy={ry('rb')} />   {/* RB in backfield */}
       </>
     );
   }

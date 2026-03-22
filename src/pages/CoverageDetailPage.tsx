@@ -60,6 +60,7 @@ export default function CoverageDetailPage() {
           <h2 className="detail__section-title">Formation Diagram</h2>
           <CoverageDiagram
             diagram={coverage.diagram}
+            formation={coverage.formation}
             size="large"
             showZones={true}
             showArrows={true}

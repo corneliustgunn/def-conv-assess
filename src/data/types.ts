@@ -83,6 +83,7 @@ export interface CoverageData {
   weaknesses: string[];
   indicators: IndicatorGroup[];
   diagram: DiagramData;
+  formation?: FormationType;
   relatedCoverages: string[];
   tags: string[];
   offensiveCounters: OffensiveCounter[];
@@ -93,6 +94,7 @@ export interface QuizQuestion {
   type: QuestionType;
   coverageId: string;
   diagramData: DiagramData;
+  formation?: FormationType;
   choices: string[]; // 4 coverage IDs
   explanation: string;
   difficulty: Difficulty;

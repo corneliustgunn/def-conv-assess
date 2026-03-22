@@ -59,10 +59,8 @@ const cover2: CoverageData = {
       // Linebackers in underneath zones
       { id: 'LOLB', label: 'LB', role: 'linebacker', x: 22, y: 42,
         coverageZone: { type: 'curl-flat', rect: { x: 5, y: 30, width: 25, height: 18 } } },
-      { id: 'LILB', label: 'LB', role: 'linebacker', x: 40, y: 43,
-        coverageZone: { type: 'hook', rect: { x: 30, y: 33, width: 20, height: 15 } } },
-      { id: 'RILB', label: 'LB', role: 'linebacker', x: 60, y: 43,
-        coverageZone: { type: 'hook', rect: { x: 50, y: 33, width: 20, height: 15 } } },
+      { id: 'MLB', label: 'LB', role: 'linebacker', x: 50, y: 43,
+        coverageZone: { type: 'hook', rect: { x: 30, y: 33, width: 40, height: 15 } } },
       { id: 'ROLB', label: 'LB', role: 'linebacker', x: 78, y: 42,
         coverageZone: { type: 'curl-flat', rect: { x: 70, y: 30, width: 25, height: 18 } } },
       // Two safeties deep — split wide
@@ -82,6 +80,7 @@ const cover2: CoverageData = {
       { x: 50, y: 43, text: '⚠ Seam Gap', style: 'warning' },
     ],
   },
+  formation: 'standard',
   relatedCoverages: ['cover-2-man', 'tampa-2', 'cover-4'],
   tags: ['zone', 'two-high', 'press-corners', 'seam-weakness'],
   offensiveCounters: [

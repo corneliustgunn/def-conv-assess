@@ -83,6 +83,7 @@ const tampa2: CoverageData = {
       { x: 50, y: 28, text: 'MLB Seam Drop', style: 'zone-label' },
     ],
   },
+  formation: 'standard',
   relatedCoverages: ['cover-2', 'cover-3', 'cover-4'],
   tags: ['zone', 'two-high', 'mlb-seam', 'cover-2-variant'],
   offensiveCounters: [

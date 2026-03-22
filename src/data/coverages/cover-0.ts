@@ -71,6 +71,7 @@ const cover0: CoverageData = {
       { x: 50, y: 5, text: 'All man — every defender has an assignment', style: 'zone-label' },
     ],
   },
+  formation: 'empty',
   relatedCoverages: ['cover-1', 'cover-0-blitz', 'cover-2-man'],
   tags: ['man', 'no-safety', 'aggressive', 'press'],
   offensiveCounters: [
