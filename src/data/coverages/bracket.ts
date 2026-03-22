@@ -75,6 +75,7 @@ const bracket: CoverageData = {
       { x: 65, y: 6, text: '⚠ Right side: single coverage', style: 'warning' },
     ],
   },
+  formation: 'tight',
   relatedCoverages: ['cover-1', 'cover-2-man', 'pattern-match'],
   tags: ['hybrid', 'man', 'double-coverage', 'advanced', 'single-high'],
   offensiveCounters: [

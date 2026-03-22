@@ -81,6 +81,7 @@ const cover6: CoverageData = {
       { x: 50, y: 4, text: 'Asymmetric: Cover 4 left + Cover 2 right', style: 'zone-label' },
     ],
   },
+  formation: 'trips-left',
   relatedCoverages: ['cover-4', 'cover-2', 'pattern-match'],
   tags: ['zone', 'hybrid', 'asymmetric', 'advanced', 'quarters'],
   offensiveCounters: [

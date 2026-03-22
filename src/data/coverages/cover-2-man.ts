@@ -76,6 +76,7 @@ const cover2Man: CoverageData = {
       { x: 50, y: 5, text: 'CBs follow receivers — NOT zone drops', style: 'zone-label' },
     ],
   },
+  formation: 'trips-right',
   relatedCoverages: ['cover-2', 'cover-0', 'cover-1'],
   tags: ['man', 'two-high', 'disguise', 'seam-weakness'],
   offensiveCounters: [

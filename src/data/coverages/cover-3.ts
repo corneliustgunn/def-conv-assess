@@ -87,6 +87,7 @@ const cover3: CoverageData = {
       { x: 82, y: 6, text: '⚠ Corner route gap', style: 'warning' },
     ],
   },
+  formation: 'standard',
   relatedCoverages: ['cover-1', 'cover-4', 'tampa-2'],
   tags: ['zone', 'single-high', 'three-deep', 'corner-route-weakness'],
   offensiveCounters: [

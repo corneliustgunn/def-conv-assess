@@ -78,6 +78,7 @@ const patternMatch: CoverageData = {
       { x: 50, y: 4, text: 'Looks like Cover 4 pre-snap', style: 'zone-label' },
     ],
   },
+  formation: 'trips-right',
   relatedCoverages: ['cover-4', 'cover-6', 'bracket'],
   tags: ['hybrid', 'pattern-match', 'advanced', 'zone-to-man', 'quarters'],
   offensiveCounters: [

@@ -81,6 +81,7 @@ export default function QuizSessionPage() {
         <div className="quiz-session__diagram">
           <CoverageDiagram
             diagram={currentQuestion.diagramData}
+            formation={currentQuestion.formation}
             showZones={locked}
             showArrows={locked}
             showAnnotations={false}

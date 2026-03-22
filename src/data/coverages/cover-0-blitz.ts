@@ -74,6 +74,7 @@ const cover0Blitz: CoverageData = {
       { x: 50, y: 4, text: '6+ rushers — QB has < 2 seconds', style: 'zone-label' },
     ],
   },
+  formation: 'trips-right',
   relatedCoverages: ['cover-0', 'cover-1-blitz'],
   tags: ['man', 'blitz', 'no-safety', 'aggressive', 'pressure'],
   offensiveCounters: [

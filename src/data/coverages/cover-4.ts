@@ -81,6 +81,7 @@ const cover4: CoverageData = {
       { x: 50, y: 6, text: '⚠ Short & intermediate routes are WIDE OPEN', style: 'warning' },
     ],
   },
+  formation: 'empty',
   relatedCoverages: ['cover-2', 'cover-3', 'cover-6', 'pattern-match'],
   tags: ['zone', 'four-deep', 'prevent', 'conservative', 'quarters'],
   offensiveCounters: [

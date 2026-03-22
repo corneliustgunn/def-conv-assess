@@ -74,6 +74,7 @@ const cover1Blitz: CoverageData = {
       { x: 50, y: 5, text: '5+ rushers — limited deep help', style: 'zone-label' },
     ],
   },
+  formation: 'trips-left',
   relatedCoverages: ['cover-1', 'cover-0-blitz', 'cover-0'],
   tags: ['man', 'blitz', 'single-high', 'pressure'],
   offensiveCounters: [

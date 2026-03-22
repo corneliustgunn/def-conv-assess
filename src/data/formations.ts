@@ -17,7 +17,7 @@ export const FORMATIONS: Record<FormationType, FormationConfig> = {
       wr2:  { x: 94, y: LOS + 5 },
       slot: { x: 28, y: LOS + 5 },
       te:   { x: 36, y: LOS + 3 },
-      rb:   { x: 52, y: LOS + 4 },
+      rb:   { x: 52, y: LOS + 14 },
     },
   },
 
