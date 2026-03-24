@@ -86,6 +86,7 @@ export default function QuizSessionPage() {
             showArrows={locked}
             showAnnotations={false}
             showLabels={true}
+            genericLabels={!locked}
             size="large"
           />
         </div>
