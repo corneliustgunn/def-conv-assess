@@ -11,6 +11,7 @@ interface Props {
   showAnnotations?: boolean;
   offensiveRoutes?: OffensiveRoute[];
   formation?: FormationType;
+  genericLabels?: boolean;
   size?: 'small' | 'medium' | 'large';
 }
 
@@ -122,12 +123,23 @@ function Arrow({ arrow, players, visible }: { arrow: MovementArrow; players: Pla
   );
 }
 
-function PlayerDotComponent({ player, showLabel }: { player: PlayerDot; showLabel: boolean }) {
+function PlayerDotComponent({ player, showLabel, genericLabels }: { player: PlayerDot; showLabel: boolean; genericLabels?: boolean }) {
   const cx = toSvgX(player.x);
   const cy = toSvgY(player.y);
   const r = player.role === 'dline' ? 10 : 11;
   const fill = ROLE_COLORS[player.role] ?? '#fff';
   const isBlitz = player.isBlitzing;
+
+  const getLabel = () => {
+    if (!genericLabels) return player.label;
+    if (player.role === 'dline') return 'DL';
+    if (player.role === 'linebacker') return 'LB';
+    if (player.role === 'blitzer') {
+      const l = player.label.toUpperCase();
+      return (l.includes('CB') || l.includes('SS') || l.includes('FS')) ? 'DB' : 'LB';
+    }
+    return 'DB'; // cornerback, safety, nickel
+  };
 
   return (
     <g>
@@ -154,7 +166,7 @@ function PlayerDotComponent({ player, showLabel }: { player: PlayerDot; showLabe
           fontWeight="700"
           style={{ pointerEvents: 'none', userSelect: 'none' }}
         >
-          {player.label}
+          {getLabel()}
         </text>
       )}
     </g>
@@ -259,6 +271,7 @@ export default function CoverageDiagram({
   showAnnotations = true,
   offensiveRoutes,
   formation,
+  genericLabels = false,
   size = 'medium',
 }: Props) {
   const sizeClass = `diagram--${size}`;
@@ -292,7 +305,7 @@ export default function CoverageDiagram({
         ))}
 
         {diagram.players.map((p) => (
-          <PlayerDotComponent key={p.id} player={p} showLabel={showLabels} />
+          <PlayerDotComponent key={p.id} player={p} showLabel={showLabels} genericLabels={genericLabels} />
         ))}
 
         {showAnnotations && diagram.annotations?.map((ann, i) => (
